@@ -1,7 +1,8 @@
 #ifndef MENU_H
 #define MENU_H
+#include "output.h"
 
-int Menu();
 int SecMenu();
+int Menu();
 
 #endif
