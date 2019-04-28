@@ -2,9 +2,11 @@
 #include "menu.h"
 #include <fstream>
 #include <iostream>
+#include <string.h>
+#include <time.h>
 using namespace std;
 
-int File1() {
+void File1() {
   srand(time(NULL));
   int i = 0;
   fstream Theme;
@@ -26,7 +28,7 @@ int File1() {
   }
 }
 
-int File2() {
+void File2() {
   srand(time(NULL));
   int i = 0;
   fstream Theme;
@@ -48,7 +50,7 @@ int File2() {
   }
 }
 
-int File3() {
+void File3() {
   srand(time(NULL));
   int i = 0;
   fstream Theme;
@@ -70,19 +72,20 @@ int File3() {
   }
 }
 
-int Hang(string slovo) {
-  int k = 0, i = 0, o, LIFE = 5;
+void Hang(string slovo) {
+  int k = 0, o, LIFE = 5;
   cout << "\t NACHALO" << endl;
   cout << "VVEDITE LETTER" << endl;
   string Buffer;
   char temp;
-  for (int i = 0; i < slovo.length(); i++)
+  o = slovo.length();
+  for (int i = 0; i < o; i++)
     Buffer += "_";
   cout << Buffer << "\tLife:" << LIFE << endl;
   while (LIFE > 0 && (slovo != Buffer)) {
     cin >> temp;
     k = 0;
-    for (int i = 0; i < slovo.length(); i++) {
+    for (int i = 0; i < o; i++) {
       if (slovo[i] == temp) {
         k++;
         Buffer[i] = temp;
@@ -103,27 +106,28 @@ int Hang(string slovo) {
     system("PAUSE");
     Menu();
   }
+}
 
-  int Help() {
-    system("CLS");
-    int k;
-    fstream Help;
-    Help.open("Help.txt");
-    if (!Help.is_open()) {
-      cout << "Can't find file" << endl;
-      Menu();
-    } else {
-      string str;
-      while (!Help.eof()) {
-        str = "";
-        getline(Help, str);
-        cout << str << endl;
-      }
+int Help() {
+  system("CLS");
+  int k;
+  fstream Help;
+  Help.open("Help.txt");
+  if (!Help.is_open()) {
+    cout << "Can't find file" << endl;
+    Menu();
+  } else {
+    string str;
+    while (!Help.eof()) {
+      str = "";
+      getline(Help, str);
+      cout << str << endl;
     }
-    cout << "- Click 1 to go back" << endl;
-    cin >> k;
-    if (k == 1)
-      return 1;
-    else
-      return 0;
   }
+  cout << "- Click 1 to go back" << endl;
+  cin >> k;
+  if (k == 1)
+    return 1;
+  else
+    return 0;
+}
