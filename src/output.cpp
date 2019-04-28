@@ -98,18 +98,15 @@ void Hang(string slovo) {
   if (LIFE > 0) {
     cout << "POBEEDAAAAAA";
     cout << endl;
-    system("PAUSE");
     Menu();
   } else {
     cout << "SMEERTb";
     cout << endl;
-    system("PAUSE");
     Menu();
   }
 }
 
 int Help() {
-  system("CLS");
   int k;
   fstream Help;
   Help.open("../files/Help.txt");

@@ -35,11 +35,9 @@ int SecMenu() {
 
 int Menu() {
   int l = 0, k = 0;
-  system("CLS");
   cout << "1.Game" << endl;
   cout << "2.Help" << endl;
   cout << "3.Exit" << endl;
-  //	while (bool l = true) {
   cin >> k;
   switch (k) {
   case 1:
