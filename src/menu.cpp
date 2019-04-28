@@ -14,20 +14,15 @@ int SecMenu() {
   cout << endl;
   int k = 0;
   cin >> k;
-  //	while (bool l = true) {
-  /*if (k == 50 || k == 49 || k == 51)
-    Game(k);
-  else if (k == 52)
-    return 1;*/
   switch (k) {
   case 1:
-    Game(k);
+    File1();
     break;
   case 2:
-    Game(k);
+    File2();
     break;
   case 3:
-    Game(k);
+    File3();
     break;
   case 4:
     return 1;
@@ -41,6 +36,7 @@ int SecMenu() {
 
 int Menu() {
   int l = 0, k = 0;
+  system("CLS");
   cout << "1.Game" << endl;
   cout << "2.Help" << endl;
   cout << "3.Exit" << endl;
@@ -53,10 +49,8 @@ int Menu() {
   case 2:
     l = Help();
     break;
-  case 3: /* l = false;*/
+  case 3:
     return 0;
-    // default??
-    //		}
   }
   if (l)
     Menu();
