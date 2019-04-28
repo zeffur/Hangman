@@ -10,7 +10,7 @@ void File1() {
   srand(time(NULL));
   int i = 0;
   fstream Theme;
-  string path = "./files/Length1.txt";
+  string path = "../files/Length1.txt";
   Theme.open(path);
   if (!Theme.is_open()) {
     cout << "Can't find file" << endl;
@@ -32,7 +32,7 @@ void File2() {
   srand(time(NULL));
   int i = 0;
   fstream Theme;
-  string path = "./files/Length2.txt";
+  string path = "../files/Length2.txt";
   Theme.open(path);
   if (!Theme.is_open()) {
     cout << "Can't find file" << endl;
@@ -54,7 +54,7 @@ void File3() {
   srand(time(NULL));
   int i = 0;
   fstream Theme;
-  string path = "./files/Length3.txt";
+  string path = "../files/Length3.txt";
   Theme.open(path);
   if (!Theme.is_open()) {
     cout << "Can't find file" << endl;
