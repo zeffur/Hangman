@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include <time.h>
+#include <vector>
 using namespace std;
 
 void File1() {
@@ -73,22 +74,22 @@ void File3() {
 }
 
 void Hang(string slovo) {
-  int k = 0, o, LIFE = 5;
+  int k = 0, LIFE = 5;
   cout << "\t NACHALO" << endl;
   cout << "VVEDITE LETTER" << endl;
   string Buffer;
   char temp;
-  o = slovo.length();
-  for (int i = 0; i < o; i++)
+  // o = slovo.length();
+  for (std::vector<double>::size_type i = 0; i < slovo.length(); i++)
     Buffer += "_";
   cout << Buffer << "\tLife:" << LIFE << endl;
   while (LIFE > 0 && (slovo != Buffer)) {
     cin >> temp;
     k = 0;
-    for (int i = 0; i < o; i++) {
-      if (slovo[i] == temp) {
+    for (std::vector<double>::size_type j = 0; j < slovo.length(); j++) {
+      if (slovo[j] == temp) {
         k++;
-        Buffer[i] = temp;
+        Buffer[j] = temp;
       }
     }
     if (k == 0)
