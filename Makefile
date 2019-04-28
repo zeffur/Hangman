@@ -1,4 +1,4 @@
-FLAGS := -std=99
+FLAGS := -std=c11
 BIN_DIR := ./bin
 BUILD_DIR := ./build
 SRC_DIR := ./src
@@ -22,4 +22,4 @@ $(BUILD_DIR)/output.o: $(SRC_DIR)/output.cpp
 
 clean:
 	rm -rf $(BIN_DIR)/main
-	rm -rf $(BUILD_DIR)/*.o
+	rm -rf $(BLD_DIR)/*.o
