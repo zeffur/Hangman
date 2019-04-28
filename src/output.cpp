@@ -112,7 +112,7 @@ int Help() {
   system("CLS");
   int k;
   fstream Help;
-  Help.open("Help.txt");
+  Help.open("../files/Help.txt");
   if (!Help.is_open()) {
     cout << "Can't find file" << endl;
     Menu();
