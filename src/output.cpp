@@ -1,15 +1,45 @@
 #include "output.h"
 #include "menu.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_timer.h>
 #include <fstream>
 #include <iostream>
 #include <string.h>
 #include <time.h>
-#include <vector>
 using namespace std;
 
-void File1() {
+int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game) {
+  cout << "yolo";
+
   srand(time(NULL));
   int i = 0;
+  char word[256];
+
+  FILE *file = fopen("./files/Length1.txt", "r");
+  if (file == NULL) {
+    cout << "file not found";
+    cout << endl;
+  }
+
+  while (i < rand() % 10) {
+    fscanf(file, "%s", word);
+    //    l = strlen(word);
+    i++;
+  }
+  cout << word;
+  fclose(file);
+
+  SDL_RenderClear(rend);
+  SDL_RenderCopy(rend, tex_game, NULL, NULL);
+  SDL_RenderPresent(rend);
+  // Hang(word,l);
+  return 0;
+} /*
+  srand(time(NULL));
+  int i = 0;
+
+
   fstream Theme;
   string path = "../files/Length1.txt";
   Theme.open(path);
@@ -26,9 +56,10 @@ void File1() {
     }
     Theme.close();
     Hang(slovo);
-  }
-}
-
+  }*/
+// return 0;
+//}
+/*
 void File2() {
   srand(time(NULL));
   int i = 0;
@@ -71,9 +102,9 @@ void File3() {
     Theme.close();
     Hang(slovo);
   }
-}
-
-void Hang(string slovo) {
+}*/
+/*
+void Hang(char slovo) {
   int k = 0, LIFE = 5;
   cout << "\t NACHALO" << endl;
   cout << "VVEDITE LETTER" << endl;
@@ -105,7 +136,7 @@ void Hang(string slovo) {
     cout << endl;
     Menu();
   }
-}
+}*/
 
 int Help() {
   int k;
