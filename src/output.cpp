@@ -9,11 +9,12 @@
 #include <time.h>
 using namespace std;
 
-int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game) {
+void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
+           SDL_Texture *tex_blank) {
   cout << "yolo";
 
   srand(time(NULL));
-  int i = 0;
+  int i = 0, l, b = 0;
   char word[256];
 
   FILE *file = fopen("./files/Length1.txt", "r");
@@ -24,17 +25,32 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game) {
 
   while (i < rand() % 10) {
     fscanf(file, "%s", word);
-    //    l = strlen(word);
+    l = strlen(word);
+
     i++;
   }
   cout << word;
+  cout << l;
   fclose(file);
 
   SDL_RenderClear(rend);
   SDL_RenderCopy(rend, tex_game, NULL, NULL);
-  SDL_RenderPresent(rend);
+
+  SDL_Rect rect;
+  while (b < l) {
+    SDL_QueryTexture(tex_blank, NULL, NULL, &rect.w, &rect.h);
+
+    rect.w = 70;
+    rect.h = 30;
+    rect.x = 100 + (b * 70);
+    rect.y = 600;
+    SDL_RenderCopy(rend, tex_blank, NULL, &rect);
+    SDL_RenderPresent(rend);
+    SDL_Delay(1000 / 60);
+    b++;
+  }
+
   // Hang(word,l);
-  return 0;
 } /*
   srand(time(NULL));
   int i = 0;
