@@ -145,6 +145,25 @@ int Menu() {
     return 1;
   }
 
+  SDL_Surface *surface_blank = IMG_Load("./files/images/blank.png");
+  if (!surface_blank) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_blank = SDL_CreateTextureFromSurface(rend, surface_blank);
+  SDL_FreeSurface(surface_blank);
+  if (!tex_blank) {
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
   SDL_RenderClear(rend);
   SDL_RenderCopy(rend, tex_main, NULL, NULL);
   SDL_RenderPresent(rend);
@@ -179,7 +198,7 @@ int Menu() {
         if (mouse_x > 451 && mouse_x < 601 && mouse_y > 346 && mouse_y < 401 &&
             status == 2) {
 
-          File1(rend, win, tex_game);
+          File1(rend, win, tex_game, tex_blank);
         }
       }
     }
@@ -201,7 +220,6 @@ int Menu() {
       }
       if (l)
         Menu();*/
-    SDL_Delay(1000 / 60);
   }
 
   SDL_DestroyRenderer(rend);
