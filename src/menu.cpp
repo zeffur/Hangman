@@ -7,9 +7,9 @@
 
 using namespace std;
 
-int SecMenu() {
+/*int SecMenu() {
 
-  /*  cout << "Select difficulty level:" << endl;
+    cout << "Select difficulty level:" << endl;
     cout << "1.Easy" << endl;
     cout << "2.Normal" << endl;
     cout << "3.Hard" << endl;
@@ -34,8 +34,8 @@ int SecMenu() {
       break;
     }*/
 
-  return 0;
-}
+//  return 0;
+//}*/
 
 int Menu() {
   //  int l = 0, k = 0;
@@ -126,6 +126,25 @@ int Menu() {
     return 1;
   }
 
+  SDL_Surface *surface_gameplay = IMG_Load("./files/images/gameplay.png");
+  if (!surface_gameplay) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_game = SDL_CreateTextureFromSurface(rend, surface_gameplay);
+  SDL_FreeSurface(surface_gameplay);
+  if (!tex_game) {
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
   SDL_RenderClear(rend);
   SDL_RenderCopy(rend, tex_main, NULL, NULL);
   SDL_RenderPresent(rend);
@@ -159,7 +178,8 @@ int Menu() {
       if (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) {
         if (mouse_x > 451 && mouse_x < 601 && mouse_y > 346 && mouse_y < 401 &&
             status == 2) {
-          File1();
+
+          File1(rend, win, tex_game);
         }
       }
     }
