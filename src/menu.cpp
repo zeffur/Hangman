@@ -83,14 +83,31 @@ int Menu() {
     SDL_Quit();
     return 1;
   }
+  SDL_Surface *surface2 = IMG_Load("./files/images/main2.png");
+  if (!surface2) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex2 = SDL_CreateTextureFromSurface(rend, surface2);
+  SDL_FreeSurface(surface2);
+  if (!tex) {
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
 
   SDL_RenderClear(rend);
-
-  // draw the image to the window
   SDL_RenderCopy(rend, tex, NULL, NULL);
   SDL_RenderPresent(rend);
-
+  // draw the image to the window
   int close_requested = 0;
+  int status = 1;
 
   while (!close_requested) {
     SDL_Event event;
@@ -100,52 +117,47 @@ int Menu() {
       }
       int mouse_x, mouse_y;
       int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
-      if (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) {
-        if (mouse_x > 450 && mouse_x < 600 && mouse_y > 345 && mouse_y < 400) {
+      if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
+          event.type == SDL_MOUSEBUTTONDOWN) {
+        if (mouse_x > 450 && mouse_x < 600 && mouse_y > 345 && mouse_y < 400 &&
+            status == 1) {
           printf("lol \n");
-          SDL_Surface *surface = IMG_Load("./files/images/main2.png");
-          if (!surface) {
-            printf("error creating surface\n");
-            SDL_DestroyRenderer(rend);
-            SDL_DestroyWindow(win);
-            SDL_Quit();
-            return 1;
-          }
-
-          SDL_Texture *tex2 = SDL_CreateTextureFromSurface(rend, surface);
-          SDL_FreeSurface(surface);
-          if (!tex) {
-            printf("error creating texture: %s\n", SDL_GetError());
-            SDL_DestroyRenderer(rend);
-            SDL_DestroyWindow(win);
-            SDL_Quit();
-            return 1;
-          }
-
           SDL_RenderClear(rend);
           SDL_RenderCopy(rend, tex2, NULL, NULL);
           SDL_RenderPresent(rend);
         }
-        // SecMenu();
+
+        //  SDL_Delay(5000);
       }
-      // switch ()
-      /* cout << "1.Game" << endl;
-        cout << "2.Help" << endl;
-        cout << "3.Exit" << endl;*/
-      //  cin >> k;
-      /*  switch (k) {
-        case 1:
-          l = SecMenu();
-          break;
-        case 2:
-          l = Help();
-          break;
-        case 3:
-          return 0;
+      if (event.type == SDL_MOUSEBUTTONUP && status == 1)
+        ++status;
+      // buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
+      if (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) {
+        if (mouse_x > 451 && mouse_x < 601 && mouse_y > 346 && mouse_y < 401 &&
+            status == 2) {
+          File1();
         }
-        if (l)
-          Menu();*/
+      }
     }
+    // SecMenu();
+    // switch ()
+    /* cout << "1.Game" << endl;
+      cout << "2.Help" << endl;
+      cout << "3.Exit" << endl;*/
+    //  cin >> k;
+    /*  switch (k) {
+      case 1:
+        l = SecMenu();
+        break;
+      case 2:
+        l = Help();
+        break;
+      case 3:
+        return 0;
+      }
+      if (l)
+        Menu();*/
+    SDL_Delay(1000 / 60);
   }
 
   SDL_DestroyTexture(tex);
