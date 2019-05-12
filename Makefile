@@ -2,7 +2,7 @@ FLAGS := -std=c11
 BIN_DIR := ./bin
 BUILD_DIR := ./build
 SRC_DIR := ./src
-CC := g++ -Wall -Werror
+CC := g++ -Wall -Wextra
 SDL := `sdl2-config --libs --cflags` --std=c99 -lSDL2_image
 .PHONY: clean
 
