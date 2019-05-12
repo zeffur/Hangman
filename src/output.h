@@ -1,10 +1,13 @@
 #ifndef OUTPUT_H
 #define OUTPUT_H
 #include "menu.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_timer.h>
 #include <iostream>
 using namespace std;
 
-void File1();
+int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game);
 void File2();
 void File3();
 void Hang(string slovo);
