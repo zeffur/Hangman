@@ -63,9 +63,8 @@ int Menu() {
     return 1;
   }
 
-  // load the image into memory using SDL_image library function
-  SDL_Surface *surface = IMG_Load("./files/images/main.png");
-  if (!surface) {
+  SDL_Surface *surface_loading = IMG_Load("./files/images/loading.png");
+  if (!surface_loading) {
     printf("error creating surface\n");
     SDL_DestroyRenderer(rend);
     SDL_DestroyWindow(win);
@@ -73,28 +72,9 @@ int Menu() {
     return 1;
   }
 
-  // load the image data into the graphics hardware's memory
-  SDL_Texture *tex = SDL_CreateTextureFromSurface(rend, surface);
-  SDL_FreeSurface(surface);
-  if (!tex) {
-    printf("error creating texture: %s\n", SDL_GetError());
-    SDL_DestroyRenderer(rend);
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-  SDL_Surface *surface2 = IMG_Load("./files/images/main2.png");
-  if (!surface2) {
-    printf("error creating surface\n");
-    SDL_DestroyRenderer(rend);
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  SDL_Texture *tex2 = SDL_CreateTextureFromSurface(rend, surface2);
-  SDL_FreeSurface(surface2);
-  if (!tex) {
+  SDL_Texture *tex_load = SDL_CreateTextureFromSurface(rend, surface_loading);
+  SDL_FreeSurface(surface_loading);
+  if (!tex_load) {
     printf("error creating texture: %s\n", SDL_GetError());
     SDL_DestroyRenderer(rend);
     SDL_DestroyWindow(win);
@@ -103,7 +83,51 @@ int Menu() {
   }
 
   SDL_RenderClear(rend);
-  SDL_RenderCopy(rend, tex, NULL, NULL);
+  SDL_RenderCopy(rend, tex_load, NULL, NULL);
+  SDL_RenderPresent(rend);
+
+  // load the image into memory using SDL_image library function
+  SDL_Surface *surface_main = IMG_Load("./files/images/main.png");
+  if (!surface_main) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  // load the image data into the graphics hardware's memory
+  SDL_Texture *tex_main = SDL_CreateTextureFromSurface(rend, surface_main);
+  SDL_FreeSurface(surface_main);
+  if (!tex_main) {
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+  SDL_Surface *surface_secmain = IMG_Load("./files/images/main2.png");
+  if (!surface_secmain) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_secmain =
+      SDL_CreateTextureFromSurface(rend, surface_secmain);
+  SDL_FreeSurface(surface_secmain);
+  if (!tex_secmain) {
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_RenderClear(rend);
+  SDL_RenderCopy(rend, tex_main, NULL, NULL);
   SDL_RenderPresent(rend);
   // draw the image to the window
   int close_requested = 0;
@@ -123,7 +147,7 @@ int Menu() {
             status == 1) {
           printf("lol \n");
           SDL_RenderClear(rend);
-          SDL_RenderCopy(rend, tex2, NULL, NULL);
+          SDL_RenderCopy(rend, tex_secmain, NULL, NULL);
           SDL_RenderPresent(rend);
         }
 
@@ -160,7 +184,6 @@ int Menu() {
     SDL_Delay(1000 / 60);
   }
 
-  SDL_DestroyTexture(tex);
   SDL_DestroyRenderer(rend);
   SDL_DestroyWindow(win);
   SDL_Quit();
