@@ -7,7 +7,8 @@
 #include <iostream>
 using namespace std;
 
-int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game);
+void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
+           SDL_Texture *tex_blank);
 void File2();
 void File3();
 void Hang(string slovo);
