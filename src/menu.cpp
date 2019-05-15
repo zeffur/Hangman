@@ -181,7 +181,7 @@ int Menu() {
       int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
-        if (mouse_x > 450 && mouse_x < 600 && mouse_y > 345 && mouse_y < 400 &&
+        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 300 && mouse_y < 360 &&
             status == 1) {
           printf("lol \n");
           SDL_RenderClear(rend);
@@ -195,10 +195,20 @@ int Menu() {
         ++status;
       // buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) {
-        if (mouse_x > 451 && mouse_x < 601 && mouse_y > 346 && mouse_y < 401 &&
+        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 300 && mouse_y < 360 &&
             status == 2) {
 
           File1(rend, win, tex_game, tex_blank);
+        }
+        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 400 && mouse_y < 460 &&
+            status == 2) {
+
+          File2(rend, win, tex_game, tex_blank);
+        }
+        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 500 && mouse_y < 560 &&
+            status == 2) {
+
+          File3(rend, win, tex_game, tex_blank);
         }
       }
     }
