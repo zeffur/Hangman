@@ -9,8 +9,10 @@ using namespace std;
 
 void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
            SDL_Texture *tex_blank);
-void File2();
-void File3();
+void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
+           SDL_Texture *tex_blank);
+void File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
+           SDL_Texture *tex_blank);
 int Hang(SDL_Renderer *rend, SDL_Window *win, char *word);
 int Help();
 
