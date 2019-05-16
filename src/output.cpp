@@ -1176,23 +1176,23 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word) {
         SDL_RenderPresent(rend);
         if (failure == 5) {
           cout << "YOU LOST!!";
-          return 1;
+          return 7;
         }
         if (c == strlen(word)) {
           cout << "YOU WON!!";
-          return 0;
+          return 5;
         }
       }
     }
   }
   return 0;
 }
-
 void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
-           SDL_Texture *tex_blank) {
+           SDL_Texture *tex_blank, SDL_Texture *tex_loss,
+           SDL_Texture *tex_win) {
   cout << "yolo" << endl;
 
-  int i = 0, l, b = 0, k;
+  int i = 0, l, b = 0, k, h;
   srand(time(NULL));
   char word[256];
 
@@ -1228,17 +1228,27 @@ void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
     SDL_Delay(1000 / 60);
     b++;
   }
-  if (Hang(rend, win, word)) {
-    cout << "LOSERRRRRR!";
-  } else
-    cout << "GONGRATZ!";
+  h = Hang(rend, win, word);
+
+  if (h == 7) {
+
+    SDL_RenderClear(rend);
+    SDL_RenderCopy(rend, tex_loss, NULL, NULL);
+    SDL_RenderPresent(rend);
+
+  } else if (h == 5) {
+    SDL_RenderClear(rend);
+    SDL_RenderCopy(rend, tex_win, NULL, NULL);
+    SDL_RenderPresent(rend);
+  }
 }
 
 void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
-           SDL_Texture *tex_blank) {
+           SDL_Texture *tex_blank, SDL_Texture *tex_loss,
+           SDL_Texture *tex_win) {
   cout << "yolo" << endl;
 
-  int i = 0, l, b = 0, k;
+  int i = 0, l, b = 0, k, h;
   srand(time(NULL));
   char word[256];
 
@@ -1274,14 +1284,26 @@ void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
     SDL_Delay(1000 / 60);
     b++;
   }
-  Hang(rend, win, word);
+  h = Hang(rend, win, word);
+  if (h == 7) {
+
+    SDL_RenderClear(rend);
+    SDL_RenderCopy(rend, tex_loss, NULL, NULL);
+    SDL_RenderPresent(rend);
+  } else if (h == 5) {
+
+    SDL_RenderClear(rend);
+    SDL_RenderCopy(rend, tex_win, NULL, NULL);
+    SDL_RenderPresent(rend);
+  }
 }
 
 void File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
-           SDL_Texture *tex_blank) {
+           SDL_Texture *tex_blank, SDL_Texture *tex_loss,
+           SDL_Texture *tex_win) {
   cout << "yolo" << endl;
 
-  int i = 0, l, b = 0, k;
+  int i = 0, l, b = 0, k, h;
   srand(time(NULL));
   char word[256];
 
@@ -1317,7 +1339,19 @@ void File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
     SDL_Delay(1000 / 60);
     b++;
   }
-  Hang(rend, win, word);
+  h = Hang(rend, win, word);
+  if (h == 7) {
+
+    SDL_RenderClear(rend);
+    SDL_RenderCopy(rend, tex_loss, NULL, NULL);
+    SDL_RenderPresent(rend);
+
+  } else if (h == 5) {
+
+    SDL_RenderClear(rend);
+    SDL_RenderCopy(rend, tex_win, NULL, NULL);
+    SDL_RenderPresent(rend);
+  }
 }
 
 int Help() {
