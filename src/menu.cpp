@@ -164,6 +164,44 @@ int Menu() {
     return 1;
   }
 
+  SDL_Surface *surface_loss = IMG_Load("./files/images/loss.png");
+  if (!surface_loss) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_loss = SDL_CreateTextureFromSurface(rend, surface_loss);
+  SDL_FreeSurface(surface_loss);
+  if (!tex_loss) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Surface *surface_win = IMG_Load("./files/images/win.png");
+  if (!surface_win) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_win = SDL_CreateTextureFromSurface(rend, surface_win);
+  SDL_FreeSurface(surface_win);
+  if (!tex_win) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
   SDL_RenderClear(rend);
   SDL_RenderCopy(rend, tex_main, NULL, NULL);
   SDL_RenderPresent(rend);
@@ -198,17 +236,17 @@ int Menu() {
         if (mouse_x > 400 && mouse_x < 600 && mouse_y > 300 && mouse_y < 360 &&
             status == 2) {
 
-          File1(rend, win, tex_game, tex_blank);
+          File1(rend, win, tex_game, tex_blank, tex_loss, tex_win);
         }
         if (mouse_x > 400 && mouse_x < 600 && mouse_y > 400 && mouse_y < 460 &&
             status == 2) {
 
-          File2(rend, win, tex_game, tex_blank);
+          File2(rend, win, tex_game, tex_blank, tex_loss, tex_win);
         }
         if (mouse_x > 400 && mouse_x < 600 && mouse_y > 500 && mouse_y < 560 &&
             status == 2) {
 
-          File3(rend, win, tex_game, tex_blank);
+          File3(rend, win, tex_game, tex_blank, tex_loss, tex_win);
         }
       }
     }
