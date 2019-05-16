@@ -75,6 +75,97 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word) {
     return 1;
   }
 
+  SDL_Surface *surface_fm = IMG_Load("./files/images/fm.png");
+  if (!surface_fm) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_fm = SDL_CreateTextureFromSurface(rend, surface_fm);
+  SDL_FreeSurface(surface_fm);
+  if (!tex_fm) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+  SDL_Surface *surface_sm = IMG_Load("./files/images/sm.png");
+  if (!surface_sm) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_sm = SDL_CreateTextureFromSurface(rend, surface_sm);
+  SDL_FreeSurface(surface_sm);
+  if (!tex_sm) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+  SDL_Surface *surface_tm = IMG_Load("./files/images/tm.png");
+  if (!surface_tm) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_tm = SDL_CreateTextureFromSurface(rend, surface_tm);
+  SDL_FreeSurface(surface_tm);
+  if (!tex_tm) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+  SDL_Surface *surface_fom = IMG_Load("./files/images/fom.png");
+  if (!surface_fom) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_fom = SDL_CreateTextureFromSurface(rend, surface_fom);
+  SDL_FreeSurface(surface_fom);
+  if (!tex_fom) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+  SDL_Surface *surface_fim = IMG_Load("./files/images/fim.png");
+  if (!surface_fim) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_fim = SDL_CreateTextureFromSurface(rend, surface_fim);
+  SDL_FreeSurface(surface_fim);
+  if (!tex_fim) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
   cout << word;
   unsigned int i;
   int close_requested = 0, failure = 0, c = 0;
@@ -94,7 +185,8 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word) {
       int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
-        cout << "uhuhu" << endl;
+        //  cout << "uhuhu" << endl;
+
         if (mouse_x > 66 && mouse_x < 123 && mouse_y > 83 && mouse_y < 128 &&
             status[0] == 0) {
           for (i = 0; i < strlen(word); i++) {
@@ -1173,11 +1265,34 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word) {
           status[25] = 1;
         }
 
-        SDL_RenderPresent(rend);
+        if (failure == 1) {
+          cout << endl << "fail1";
+          SDL_RenderCopy(rend, tex_fm, NULL, NULL);
+          // SDL_RenderPresent(rend);
+        }
+        if (failure == 2) {
+          cout << endl << "fail2";
+          SDL_RenderCopy(rend, tex_sm, NULL, NULL);
+          // SDL_RenderPresent(rend);
+        }
+        if (failure == 3) {
+          cout << endl << "fail3";
+          SDL_RenderCopy(rend, tex_tm, NULL, NULL);
+          // SDL_RenderPresent(rend);
+        }
+        if (failure == 4) {
+          cout << endl << "fail4";
+          SDL_RenderCopy(rend, tex_fom, NULL, NULL);
+          //  SDL_RenderPresent(rend);
+        }
         if (failure == 5) {
+          cout << endl << "fail5";
+          SDL_RenderCopy(rend, tex_fim, NULL, NULL);
+          //  SDL_RenderPresent(rend);
           cout << "YOU LOST!!";
           return 7;
         }
+        SDL_RenderPresent(rend);
         if (c == strlen(word)) {
           cout << "YOU WON!!";
           return 5;
