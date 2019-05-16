@@ -9,7 +9,9 @@
 #include <time.h>
 using namespace std;
 
-int Hang(SDL_Renderer *rend, SDL_Window *win, char *word) {
+int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture *tex_fm,
+         SDL_Texture *tex_sm, SDL_Texture *tex_tm, SDL_Texture *tex_fom,
+         SDL_Texture *tex_fim, SDL_Texture *tex_right, SDL_Texture *tex_wrong) {
 
   SDL_Surface **surface_let =
       (SDL_Surface **)malloc(sizeof(SDL_Surface *) * 26);
@@ -36,135 +38,6 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word) {
     path[15] = 'B' + l;
   }
   SDL_FreeSurface(*surface_let);
-
-  SDL_Surface *surface_right = IMG_Load("./files/images/right.png");
-  if (!surface_right) {
-    printf("error creating surface\n");
-    SDL_DestroyRenderer(rend);
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  SDL_Texture *tex_right = SDL_CreateTextureFromSurface(rend, surface_right);
-  SDL_FreeSurface(surface_right);
-  if (!tex_right) {
-    SDL_DestroyRenderer(rend);
-    printf("error creating texture: %s\n", SDL_GetError());
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  SDL_Surface *surface_wrong = IMG_Load("./files/images/wrong.png");
-  if (!surface_wrong) {
-    printf("error creating surface\n");
-    SDL_DestroyRenderer(rend);
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  SDL_Texture *tex_wrong = SDL_CreateTextureFromSurface(rend, surface_wrong);
-  SDL_FreeSurface(surface_wrong);
-  if (!tex_wrong) {
-    SDL_DestroyRenderer(rend);
-    printf("error creating texture: %s\n", SDL_GetError());
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  SDL_Surface *surface_fm = IMG_Load("./files/images/fm.png");
-  if (!surface_fm) {
-    printf("error creating surface\n");
-    SDL_DestroyRenderer(rend);
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  SDL_Texture *tex_fm = SDL_CreateTextureFromSurface(rend, surface_fm);
-  SDL_FreeSurface(surface_fm);
-  if (!tex_fm) {
-    SDL_DestroyRenderer(rend);
-    printf("error creating texture: %s\n", SDL_GetError());
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-  SDL_Surface *surface_sm = IMG_Load("./files/images/sm.png");
-  if (!surface_sm) {
-    printf("error creating surface\n");
-    SDL_DestroyRenderer(rend);
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  SDL_Texture *tex_sm = SDL_CreateTextureFromSurface(rend, surface_sm);
-  SDL_FreeSurface(surface_sm);
-  if (!tex_sm) {
-    SDL_DestroyRenderer(rend);
-    printf("error creating texture: %s\n", SDL_GetError());
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-  SDL_Surface *surface_tm = IMG_Load("./files/images/tm.png");
-  if (!surface_tm) {
-    printf("error creating surface\n");
-    SDL_DestroyRenderer(rend);
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  SDL_Texture *tex_tm = SDL_CreateTextureFromSurface(rend, surface_tm);
-  SDL_FreeSurface(surface_tm);
-  if (!tex_tm) {
-    SDL_DestroyRenderer(rend);
-    printf("error creating texture: %s\n", SDL_GetError());
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-  SDL_Surface *surface_fom = IMG_Load("./files/images/fom.png");
-  if (!surface_fom) {
-    printf("error creating surface\n");
-    SDL_DestroyRenderer(rend);
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  SDL_Texture *tex_fom = SDL_CreateTextureFromSurface(rend, surface_fom);
-  SDL_FreeSurface(surface_fom);
-  if (!tex_fom) {
-    SDL_DestroyRenderer(rend);
-    printf("error creating texture: %s\n", SDL_GetError());
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-  SDL_Surface *surface_fim = IMG_Load("./files/images/fim.png");
-  if (!surface_fim) {
-    printf("error creating surface\n");
-    SDL_DestroyRenderer(rend);
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  SDL_Texture *tex_fim = SDL_CreateTextureFromSurface(rend, surface_fim);
-  SDL_FreeSurface(surface_fim);
-  if (!tex_fim) {
-    SDL_DestroyRenderer(rend);
-    printf("error creating texture: %s\n", SDL_GetError());
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
 
   cout << word;
   unsigned int i;
@@ -1302,9 +1175,11 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word) {
   }
   return 0;
 }
-void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
-           SDL_Texture *tex_blank, SDL_Texture *tex_loss,
-           SDL_Texture *tex_win) {
+int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
+          SDL_Texture *tex_blank, SDL_Texture *tex_loss, SDL_Texture *tex_win,
+          SDL_Texture **tex_fm, SDL_Texture **tex_sm, SDL_Texture **tex_tm,
+          SDL_Texture **tex_fom, SDL_Texture **tex_fim, SDL_Texture **tex_right,
+          SDL_Texture **tex_wrong) {
   cout << "yolo" << endl;
 
   int i = 0, l, b = 0, k, h;
@@ -1343,7 +1218,8 @@ void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
     SDL_Delay(1000 / 60);
     b++;
   }
-  h = Hang(rend, win, word);
+  h = Hang(rend, win, word, *tex_fm, *tex_sm, *tex_tm, *tex_fom, *tex_fim,
+           *tex_right, *tex_wrong);
 
   if (h == 7) {
 
@@ -1358,9 +1234,11 @@ void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
   }
 }
 
-void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
-           SDL_Texture *tex_blank, SDL_Texture *tex_loss,
-           SDL_Texture *tex_win) {
+int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
+          SDL_Texture *tex_blank, SDL_Texture *tex_loss, SDL_Texture *tex_win,
+          SDL_Texture **tex_fm, SDL_Texture **tex_sm, SDL_Texture **tex_tm,
+          SDL_Texture **tex_fom, SDL_Texture **tex_fim, SDL_Texture **tex_right,
+          SDL_Texture **tex_wrong) {
   cout << "yolo" << endl;
 
   int i = 0, l, b = 0, k, h;
@@ -1399,7 +1277,8 @@ void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
     SDL_Delay(1000 / 60);
     b++;
   }
-  h = Hang(rend, win, word);
+  h = Hang(rend, win, word, *tex_fm, *tex_sm, *tex_tm, *tex_fom, *tex_fim,
+           *tex_right, *tex_wrong);
   if (h == 7) {
 
     SDL_RenderClear(rend);
@@ -1413,9 +1292,11 @@ void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
   }
 }
 
-void File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
-           SDL_Texture *tex_blank, SDL_Texture *tex_loss,
-           SDL_Texture *tex_win) {
+int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
+          SDL_Texture *tex_blank, SDL_Texture *tex_loss, SDL_Texture *tex_win,
+          SDL_Texture **tex_fm, SDL_Texture **tex_sm, SDL_Texture **tex_tm,
+          SDL_Texture **tex_fom, SDL_Texture **tex_fim, SDL_Texture **tex_right,
+          SDL_Texture **tex_wrong) {
   cout << "yolo" << endl;
 
   int i = 0, l, b = 0, k, h;
@@ -1454,7 +1335,8 @@ void File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
     SDL_Delay(1000 / 60);
     b++;
   }
-  h = Hang(rend, win, word);
+  h = Hang(rend, win, word, *tex_fm, *tex_sm, *tex_tm, *tex_fom, *tex_fim,
+           *tex_right, *tex_wrong);
   if (h == 7) {
 
     SDL_RenderClear(rend);

@@ -202,6 +202,135 @@ int Menu() {
     return 1;
   }
 
+  SDL_Surface *surface_right = IMG_Load("./files/images/right.png");
+  if (!surface_right) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_right = SDL_CreateTextureFromSurface(rend, surface_right);
+  SDL_FreeSurface(surface_right);
+  if (!tex_right) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Surface *surface_wrong = IMG_Load("./files/images/wrong.png");
+  if (!surface_wrong) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_wrong = SDL_CreateTextureFromSurface(rend, surface_wrong);
+  SDL_FreeSurface(surface_wrong);
+  if (!tex_wrong) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Surface *surface_fm = IMG_Load("./files/images/fm.png");
+  if (!surface_fm) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_fm = SDL_CreateTextureFromSurface(rend, surface_fm);
+  SDL_FreeSurface(surface_fm);
+  if (!tex_fm) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+  SDL_Surface *surface_sm = IMG_Load("./files/images/sm.png");
+  if (!surface_sm) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_sm = SDL_CreateTextureFromSurface(rend, surface_sm);
+  SDL_FreeSurface(surface_sm);
+  if (!tex_sm) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+  SDL_Surface *surface_tm = IMG_Load("./files/images/tm.png");
+  if (!surface_tm) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_tm = SDL_CreateTextureFromSurface(rend, surface_tm);
+  SDL_FreeSurface(surface_tm);
+  if (!tex_tm) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+  SDL_Surface *surface_fom = IMG_Load("./files/images/fom.png");
+  if (!surface_fom) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_fom = SDL_CreateTextureFromSurface(rend, surface_fom);
+  SDL_FreeSurface(surface_fom);
+  if (!tex_fom) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+  SDL_Surface *surface_fim = IMG_Load("./files/images/fim.png");
+  if (!surface_fim) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_fim = SDL_CreateTextureFromSurface(rend, surface_fim);
+  SDL_FreeSurface(surface_fim);
+  if (!tex_fim) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
   SDL_RenderClear(rend);
   SDL_RenderCopy(rend, tex_main, NULL, NULL);
   SDL_RenderPresent(rend);
@@ -236,17 +365,20 @@ int Menu() {
         if (mouse_x > 400 && mouse_x < 600 && mouse_y > 300 && mouse_y < 360 &&
             status == 2) {
 
-          File1(rend, win, tex_game, tex_blank, tex_loss, tex_win);
+          File1(rend, win, tex_game, tex_blank, tex_loss, tex_win, &tex_fm,
+                &tex_sm, &tex_tm, &tex_fom, &tex_fim, &tex_right, &tex_wrong);
         }
         if (mouse_x > 400 && mouse_x < 600 && mouse_y > 400 && mouse_y < 460 &&
             status == 2) {
 
-          File2(rend, win, tex_game, tex_blank, tex_loss, tex_win);
+          File2(rend, win, tex_game, tex_blank, tex_loss, tex_win, &tex_fm,
+                &tex_sm, &tex_tm, &tex_fom, &tex_fim, &tex_right, &tex_wrong);
         }
         if (mouse_x > 400 && mouse_x < 600 && mouse_y > 500 && mouse_y < 560 &&
             status == 2) {
 
-          File3(rend, win, tex_game, tex_blank, tex_loss, tex_win);
+          File3(rend, win, tex_game, tex_blank, tex_loss, tex_win, &tex_fm,
+                &tex_sm, &tex_tm, &tex_fom, &tex_fim, &tex_right, &tex_wrong);
         }
       }
     }
