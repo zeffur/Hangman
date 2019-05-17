@@ -1354,26 +1354,27 @@ int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
     SDL_RenderPresent(rend);
   }
 }
+/*
+int Help(SDL_Renderer *rend, SDL_Window *win) {
+  int close_requested = 0;
+  while (!close_requested) {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+      if (event.type == SDL_QUIT) {
+        close_requested = 1;
+      }
+      int mouse_x, mouse_y;
+      int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
+      if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
+          event.type == SDL_MOUSEBUTTONDOWN) {
+        cout << "uhuhu" << endl;
 
-int Help() {
-  int k;
-  fstream Help;
-  Help.open("../files/Help.txt");
-  if (!Help.is_open()) {
-    cout << "Can't find file" << endl;
-    Menu();
-  } else {
-    string str;
-    while (!Help.eof()) {
-      str = "";
-      getline(Help, str);
-      cout << str << endl;
+        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
+
+           Menu(rend, win);
+        }
+      }
     }
   }
-  cout << "- Click 1 to go back" << endl;
-  cin >> k;
-  if (k == 1)
-    return 1;
-  else
-    return 0;
-}
+  return 0;
+}*/
