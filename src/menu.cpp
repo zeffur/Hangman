@@ -331,6 +331,85 @@ int Menu() {
     return 1;
   }
 
+  SDL_Surface *surface_playbut = IMG_Load("./files/images/playbut.png");
+  if (!surface_playbut) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_playbut =
+      SDL_CreateTextureFromSurface(rend, surface_playbut);
+  SDL_FreeSurface(surface_playbut);
+  if (!tex_playbut) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Surface *surface_helpbut = IMG_Load("./files/images/helpbut.png");
+  if (!surface_helpbut) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_helpbut =
+      SDL_CreateTextureFromSurface(rend, surface_helpbut);
+  SDL_FreeSurface(surface_helpbut);
+  if (!tex_helpbut) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Surface *surface_quitbut = IMG_Load("./files/images/quitbut.png");
+  if (!surface_quitbut) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_quitbut =
+      SDL_CreateTextureFromSurface(rend, surface_quitbut);
+  SDL_FreeSurface(surface_quitbut);
+  if (!tex_quitbut) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Surface *surface_help = IMG_Load("./files/images/Help.png");
+  if (!surface_help) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  SDL_Texture *tex_help = SDL_CreateTextureFromSurface(rend, surface_help);
+  SDL_FreeSurface(surface_help);
+  if (!tex_help) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
   SDL_RenderClear(rend);
   SDL_RenderCopy(rend, tex_main, NULL, NULL);
   SDL_RenderPresent(rend);
@@ -348,12 +427,54 @@ int Menu() {
       int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
-        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 300 && mouse_y < 360 &&
+        if (mouse_x > 448 && mouse_x < 587 && mouse_y > 307 && mouse_y < 360 &&
             status == 1) {
+          SDL_Rect playbut;
+          SDL_QueryTexture(tex_playbut, NULL, NULL, &playbut.w, &playbut.h);
+          playbut.w = 234;
+          playbut.h = 105;
+          playbut.x = 407;
+          playbut.y = 284;
+          SDL_RenderCopy(rend, tex_playbut, NULL, &playbut);
+          SDL_RenderPresent(rend);
+          SDL_Delay(100);
           printf("lol \n");
           SDL_RenderClear(rend);
           SDL_RenderCopy(rend, tex_secmain, NULL, NULL);
           SDL_RenderPresent(rend);
+        }
+        if (mouse_x > 443 && mouse_x < 593 && mouse_y > 397 && mouse_y < 453 &&
+            status == 1) {
+          SDL_Rect helpbut;
+          SDL_QueryTexture(tex_helpbut, NULL, NULL, &helpbut.w, &helpbut.h);
+          helpbut.w = 302;
+          helpbut.h = 136;
+          helpbut.x = 373;
+          helpbut.y = 358;
+          SDL_RenderCopy(rend, tex_helpbut, NULL, &helpbut);
+          SDL_RenderPresent(rend);
+          SDL_Delay(100);
+          printf("lol \n");
+          /*SDL_RenderClear(rend);
+          SDL_RenderCopy(rend, tex_help, NULL, NULL);
+          SDL_RenderPresent(rend);*/
+        }
+        if (mouse_x > 447 && mouse_x < 574 && mouse_y > 484 && mouse_y < 537 &&
+            status == 1) {
+          SDL_Rect quitbut;
+          SDL_QueryTexture(tex_quitbut, NULL, NULL, &quitbut.w, &quitbut.h);
+          quitbut.w = 298;
+          quitbut.h = 146;
+          quitbut.x = 376;
+          quitbut.y = 439;
+          SDL_RenderCopy(rend, tex_quitbut, NULL, &quitbut);
+          SDL_RenderPresent(rend);
+          SDL_Delay(5);
+          printf("lol \n");
+          SDL_DestroyRenderer(rend);
+          SDL_DestroyWindow(win);
+          SDL_Quit();
+          return 0;
         }
 
         //  SDL_Delay(5000);
