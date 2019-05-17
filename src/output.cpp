@@ -1162,10 +1162,14 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture *tex_fm,
           cout << endl << "fail5";
           SDL_RenderCopy(rend, tex_fim, NULL, NULL);
           //  SDL_RenderPresent(rend);
+        }
+
+        SDL_RenderPresent(rend);
+        if (failure == 6) {
           cout << "YOU LOST!!";
           return 7;
         }
-        SDL_RenderPresent(rend);
+
         if (c == strlen(word)) {
           cout << "YOU WON!!";
           return 5;
