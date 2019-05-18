@@ -4,16 +4,13 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_timer.h>
 #include <iostream>
-
 using namespace std;
 
 int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
   cout << "zdes";
   SDL_RenderClear(rend);
-  // load the image into memory using SDL_image library function
   SDL_RenderCopy(rend, tex_all[0], NULL, NULL);
   SDL_RenderPresent(rend);
-  // draw the image to the window
   int close_requested = 0;
   int status = 1;
 
@@ -42,6 +39,7 @@ int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
           SDL_RenderClear(rend);
           SDL_RenderCopy(rend, tex_all[1], NULL, NULL);
           SDL_RenderPresent(rend);
+          Levels(rend, win, tex_all);
         }
         if (mouse_x > 443 && mouse_x < 593 && mouse_y > 397 && mouse_y < 453 &&
             status == 1) {
@@ -58,7 +56,7 @@ int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
           SDL_RenderClear(rend);
           SDL_RenderCopy(rend, tex_all[16], NULL, NULL);
           SDL_RenderPresent(rend);
-          Help(rend, win);
+          Help(rend, win, tex_all);
         }
         if (mouse_x > 447 && mouse_x < 574 && mouse_y > 484 && mouse_y < 537 &&
             status == 1) {
@@ -77,36 +75,10 @@ int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
           SDL_Quit();
           return 0;
         }
-
-        //  SDL_Delay(5000);
       }
-      if (event.type == SDL_MOUSEBUTTONUP && status == 1)
-        ++status;
 
-      // buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons & SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
-        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 300 && mouse_y < 360 &&
-            status == 2) {
-
-          File1(rend, win, tex_all[2], tex_all[3], tex_all[4], tex_all[5],
-                &tex_[8], &tex_all[9], &tex_all[10], &tex_all[11], &tex_all[12],
-                &tex_all[6], &tex_all[7]);
-        }
-        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 400 && mouse_y < 460 &&
-            status == 2) {
-
-          File2(rend, win, tex_all[2], tex_all[3], tex_all[4], tex_all[5],
-                &tex_[8], &tex_all[9], &tex_all[10], &tex_all[11], &tex_all[12],
-                &tex_all[6], &tex_all[7]);
-        }
-        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 500 && mouse_y < 560 &&
-            status == 2) {
-
-          File3(rend, win, tex_all[2], tex_all[3], tex_all[4], tex_all[5],
-                &tex_[8], &tex_all[9], &tex_all[10], &tex_all[11], &tex_all[12],
-                &tex_all[6], &tex_all[7]);
-        }
       }
     }
   }
