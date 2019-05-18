@@ -39,8 +39,8 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word,
   SDL_FreeSurface(*surface_let);
 
   cout << word;
-  unsigned int i;
-  int close_requested = 0, failure = 0, c = 0;
+  unsigned int i, c = 0;
+  int close_requested = 0, failure = 0;
   int status[26], estnet[26];
 
   memset(status, 0, sizeof(status));
@@ -1180,7 +1180,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word,
   }
   return 0;
 }
-int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
+void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
   cout << "yolo" << endl;
 
   int i = 0, l, b = 0, k, h;
@@ -1234,7 +1234,7 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
   }
 }
 
-int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
+void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
   cout << "yolo" << endl;
 
   int i = 0, l, b = 0, k, h;
@@ -1287,7 +1287,7 @@ int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
   }
 }
 
-int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
+void File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
   cout << "yolo" << endl;
 
   int i = 0, l, b = 0, k, h;
@@ -1341,7 +1341,7 @@ int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
   }
 }
 
-int Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
+void Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
   int close_requested = 0;
   while (!close_requested) {
     SDL_Event event;
@@ -1361,41 +1361,37 @@ int Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
       }
     }
   }
-  //}
+}
 
-  int Levels(SDL_Renderer * rend, SDL_Window * win, SDL_Texture * *tex_all) {
-    int close_requested = 0;
-    while (!close_requested) {
-      SDL_Event event;
-      while (SDL_PollEvent(&event)) {
-        if (event.type == SDL_QUIT) {
-          close_requested = 1;
+void Levels(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
+  int close_requested = 0;
+  while (!close_requested) {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+      if (event.type == SDL_QUIT) {
+        close_requested = 1;
+      }
+      int mouse_x, mouse_y;
+      int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
+      if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
+          event.type == SDL_MOUSEBUTTONDOWN) {
+        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 300 && mouse_y < 360) {
+
+          File1(rend, win, tex_all);
         }
-        int mouse_x, mouse_y;
-        int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
-        if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
-            event.type == SDL_MOUSEBUTTONDOWN) {
-          if (mouse_x > 400 && mouse_x < 600 && mouse_y > 300 &&
-              mouse_y < 360) {
+        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 400 && mouse_y < 460) {
 
-            File1(rend, win, tex_all);
-          }
-          if (mouse_x > 400 && mouse_x < 600 && mouse_y > 400 &&
-              mouse_y < 460) {
+          File2(rend, win, tex_all);
+        }
+        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 500 && mouse_y < 560) {
 
-            File2(rend, win, tex_all);
-          }
-          if (mouse_x > 400 && mouse_x < 600 && mouse_y > 500 &&
-              mouse_y < 560) {
+          File3(rend, win, tex_all);
+        }
 
-            File3(rend, win, tex_all);
-          }
-
-          if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 &&
-              mouse_y < 720) {
-            Menu(rend, win, tex_all);
-          }
+        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
+          Menu(rend, win, tex_all);
         }
       }
     }
   }
+}
