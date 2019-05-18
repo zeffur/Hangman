@@ -1354,7 +1354,7 @@ int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture *tex_game,
     SDL_RenderPresent(rend);
   }
 }
-/*
+
 int Help(SDL_Renderer *rend, SDL_Window *win) {
   int close_requested = 0;
   while (!close_requested) {
@@ -1370,11 +1370,9 @@ int Help(SDL_Renderer *rend, SDL_Window *win) {
         cout << "uhuhu" << endl;
 
         if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
-
-           Menu(rend, win);
+          Menu(rend, win);
         }
       }
     }
   }
-  return 0;
-}*/
+}

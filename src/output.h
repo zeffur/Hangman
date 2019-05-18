@@ -26,6 +26,6 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_fm,
          SDL_Texture **tex_sm, SDL_Texture **tex_tm, SDL_Texture **tex_fom,
          SDL_Texture **tex_fim, SDL_Texture **tex_right,
          SDL_Texture **tex_wrong);
-int Help();
+int Help(SDL_Renderer *rend, SDL_Window *win);
 
 #endif
