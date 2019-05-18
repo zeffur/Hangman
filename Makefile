@@ -7,7 +7,6 @@ SDL := `sdl2-config --libs --cflags` --std=c99 -lSDL2_image
 .PHONY: clean
 
 all: $(BIN_DIR)/main
-	./bin/main
 $(BIN_DIR)/main: $(BUILD_DIR)/main.o $(BUILD_DIR)/menu.o $(BUILD_DIR)/output.o
 	$(CC) $(BUILD_DIR)/main.o $(BUILD_DIR)/menu.o $(BUILD_DIR)/output.o $(SDL) -o $(BIN_DIR)/main $(FLAG)
 
