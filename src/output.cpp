@@ -9,34 +9,8 @@
 #include <time.h>
 using namespace std;
 
-int Hang(SDL_Renderer *rend, SDL_Window *win, char *word,
-         SDL_Texture **tex_all) {
-
-  SDL_Surface **surface_let =
-      (SDL_Surface **)malloc(sizeof(SDL_Surface *) * 26);
-  if (!surface_let) {
-    printf("error creating surface\n");
-    SDL_DestroyRenderer(rend);
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-  SDL_Texture **tex_let = (SDL_Texture **)malloc(sizeof(SDL_Texture *) * 26);
-  if (!tex_let) {
-    SDL_DestroyRenderer(rend);
-    printf("error creating texture: %s\n", SDL_GetError());
-    SDL_DestroyWindow(win);
-    SDL_Quit();
-    return 1;
-  }
-
-  char path[256] = "./files/images/A.png";
-  for (int l = 0; l < 26; l++) {
-    surface_let[l] = IMG_Load(path);
-    tex_let[l] = SDL_CreateTextureFromSurface(rend, surface_let[l]);
-    path[15] = 'B' + l;
-  }
-  SDL_FreeSurface(*surface_let);
+int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
+         SDL_Texture **tex_let) {
 
   cout << word;
   unsigned int i, c = 0;
@@ -1136,33 +1110,28 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word,
         }
 
         if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
-          Menu(rend, win, tex_all);
+          Menu(rend, win, tex_all, tex_let);
         }
 
         if (failure == 1) {
           cout << endl << "fail1";
           SDL_RenderCopy(rend, tex_all[8], NULL, NULL);
-          // SDL_RenderPresent(rend);
         }
         if (failure == 2) {
           cout << endl << "fail2";
           SDL_RenderCopy(rend, tex_all[9], NULL, NULL);
-          // SDL_RenderPresent(rend);
         }
         if (failure == 3) {
           cout << endl << "fail3";
           SDL_RenderCopy(rend, tex_all[10], NULL, NULL);
-          // SDL_RenderPresent(rend);
         }
         if (failure == 4) {
           cout << endl << "fail4";
           SDL_RenderCopy(rend, tex_all[11], NULL, NULL);
-          //  SDL_RenderPresent(rend);
         }
         if (failure == 5) {
           cout << endl << "fail5";
           SDL_RenderCopy(rend, tex_all[12], NULL, NULL);
-          //  SDL_RenderPresent(rend);
         }
 
         SDL_RenderPresent(rend);
@@ -1178,9 +1147,15 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word,
       }
     }
   }
+  SDL_DestroyRenderer(rend);
+  SDL_DestroyWindow(win);
+
+  // SDL_Quit();
   return 0;
 }
-void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
+
+int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+          SDL_Texture **tex_let) {
   cout << "yolo" << endl;
 
   int i = 0, l, b = 0, k, h;
@@ -1219,7 +1194,7 @@ void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
     SDL_Delay(1000 / 60);
     b++;
   }
-  h = Hang(rend, win, word, tex_all);
+  h = Hang(rend, win, word, tex_all, tex_let);
 
   if (h == 7) {
 
@@ -1232,9 +1207,30 @@ void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
     SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
     SDL_RenderPresent(rend);
   }
+  int close_requested = 0;
+  while (!close_requested) {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+      if (event.type == SDL_QUIT) {
+        close_requested = 1;
+      }
+      int mouse_x, mouse_y;
+      int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
+      if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
+          event.type == SDL_MOUSEBUTTONDOWN) {
+        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
+          Menu(rend, win, tex_all, tex_let);
+        }
+        if (mouse_x > 800 && mouse_x < 900 && mouse_y > 600 && mouse_y < 720) {
+          return 0;
+        }
+      }
+    }
+  }
 }
 
-void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
+int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+          SDL_Texture **tex_let) {
   cout << "yolo" << endl;
 
   int i = 0, l, b = 0, k, h;
@@ -1273,7 +1269,8 @@ void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
     SDL_Delay(1000 / 60);
     b++;
   }
-  h = Hang(rend, win, word, tex_all);
+  h = Hang(rend, win, word, tex_all, tex_let);
+
   if (h == 7) {
 
     SDL_RenderClear(rend);
@@ -1285,10 +1282,30 @@ void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
     SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
     SDL_RenderPresent(rend);
   }
+  int close_requested = 0;
+  while (!close_requested) {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+      if (event.type == SDL_QUIT) {
+        close_requested = 1;
+      }
+      int mouse_x, mouse_y;
+      int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
+      if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
+          event.type == SDL_MOUSEBUTTONDOWN) {
+        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
+          Menu(rend, win, tex_all, tex_let);
+        }
+        if (mouse_x > 800 && mouse_x < 900 && mouse_y > 600 && mouse_y < 720) {
+          return 0;
+        }
+      }
+    }
+  }
 }
 
-void File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
-  cout << "yolo" << endl;
+int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+          SDL_Texture **tex_let) {
 
   int i = 0, l, b = 0, k, h;
   srand(time(NULL));
@@ -1312,6 +1329,7 @@ void File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
   cout << l;
   SDL_RenderClear(rend);
   SDL_RenderCopy(rend, tex_all[2], NULL, NULL);
+  cout << "yolo" << endl;
 
   SDL_Rect rect;
   while (b < l) {
@@ -1326,22 +1344,43 @@ void File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
     SDL_Delay(1000 / 60);
     b++;
   }
-  h = Hang(rend, win, word, tex_all);
+  h = Hang(rend, win, word, tex_all, tex_let);
+
   if (h == 7) {
 
     SDL_RenderClear(rend);
     SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
     SDL_RenderPresent(rend);
-
   } else if (h == 5) {
 
     SDL_RenderClear(rend);
     SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
     SDL_RenderPresent(rend);
   }
+  int close_requested = 0;
+  while (!close_requested) {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+      if (event.type == SDL_QUIT) {
+        close_requested = 1;
+      }
+      int mouse_x, mouse_y;
+      int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
+      if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
+          event.type == SDL_MOUSEBUTTONDOWN) {
+        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
+          Menu(rend, win, tex_all, tex_let);
+        }
+        if (mouse_x > 800 && mouse_x < 900 && mouse_y > 600 && mouse_y < 720) {
+          return 0;
+        }
+      }
+    }
+  }
 }
 
-void Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
+int Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+         SDL_Texture **tex_let) {
   int close_requested = 0;
   while (!close_requested) {
     SDL_Event event;
@@ -1356,14 +1395,20 @@ void Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
         cout << "uhuhu" << endl;
 
         if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
-          Menu(rend, win, tex_all);
+          Menu(rend, win, tex_all, tex_let);
         }
       }
     }
   }
+  SDL_DestroyRenderer(rend);
+  SDL_DestroyWindow(win);
+
+  // SDL_Quit();
+  return 0;
 }
 
-void Levels(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
+int Levels(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+           SDL_Texture **tex_let) {
   int close_requested = 0;
   while (!close_requested) {
     SDL_Event event;
@@ -1377,21 +1422,25 @@ void Levels(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
           event.type == SDL_MOUSEBUTTONDOWN) {
         if (mouse_x > 400 && mouse_x < 600 && mouse_y > 300 && mouse_y < 360) {
 
-          File1(rend, win, tex_all);
+          File1(rend, win, tex_all, tex_let);
+          return 0;
         }
         if (mouse_x > 400 && mouse_x < 600 && mouse_y > 400 && mouse_y < 460) {
 
-          File2(rend, win, tex_all);
+          File2(rend, win, tex_all, tex_let);
+          return 0;
         }
         if (mouse_x > 400 && mouse_x < 600 && mouse_y > 500 && mouse_y < 560) {
 
-          File3(rend, win, tex_all);
-        }
-
-        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
-          Menu(rend, win, tex_all);
+          File3(rend, win, tex_all, tex_let);
+          return 0;
         }
       }
     }
   }
+  SDL_DestroyRenderer(rend);
+  SDL_DestroyWindow(win);
+
+  // SDL_Quit();
+  return 0;
 }
