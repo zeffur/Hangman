@@ -6,6 +6,7 @@
 #include <SDL2/SDL_timer.h>
 
 int SecMenu();
-int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all);
+int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+         SDL_Texture **tex_let);
 
 #endif

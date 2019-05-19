@@ -6,7 +6,8 @@
 #include <iostream>
 using namespace std;
 
-int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
+int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+         SDL_Texture **tex_let) {
   cout << "zdes";
   SDL_RenderClear(rend);
   SDL_RenderCopy(rend, tex_all[0], NULL, NULL);
@@ -36,8 +37,9 @@ int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
           SDL_RenderClear(rend);
           SDL_RenderCopy(rend, tex_all[1], NULL, NULL);
           SDL_RenderPresent(rend);
-          Levels(rend, win, tex_all);
+          Levels(rend, win, tex_all, tex_let);
         }
+
         if (mouse_x > 443 && mouse_x < 593 && mouse_y > 397 && mouse_y < 453) {
           SDL_Rect helpbut;
           SDL_QueryTexture(tex_all[14], NULL, NULL, &helpbut.w, &helpbut.h);
@@ -52,7 +54,7 @@ int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
           SDL_RenderClear(rend);
           SDL_RenderCopy(rend, tex_all[16], NULL, NULL);
           SDL_RenderPresent(rend);
-          Help(rend, win, tex_all);
+          Help(rend, win, tex_all, tex_let);
         }
         if (mouse_x > 447 && mouse_x < 574 && mouse_y > 484 && mouse_y < 537) {
           SDL_Rect quitbut;
@@ -71,16 +73,11 @@ int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all) {
           return 0;
         }
       }
-
-      if (buttons & SDL_BUTTON(SDL_BUTTON_LEFT) &&
-          event.type == SDL_MOUSEBUTTONDOWN) {
-      }
     }
   }
-
   SDL_DestroyRenderer(rend);
   SDL_DestroyWindow(win);
-  SDL_Quit();
+  // SDL_Quit();
 
   return 0;
 }

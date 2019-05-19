@@ -7,12 +7,17 @@
 #include <iostream>
 using namespace std;
 
-void File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all);
-void File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all);
-void File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all);
-int Hang(SDL_Renderer *rend, SDL_Window *win, char *word,
-         SDL_Texture **tex_all);
-void Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all);
-void Levels(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all);
+int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+          SDL_Texture **tex_let);
+int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+          SDL_Texture **tex_let);
+int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+          SDL_Texture **tex_let);
+int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
+         SDL_Texture **tex_let);
+int Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+         SDL_Texture **tex_let);
+int Levels(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+           SDL_Texture **tex_let);
 
 #endif
