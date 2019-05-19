@@ -52,6 +52,32 @@ int main() {
   SDL_RenderCopy(rend, tex_load, NULL, NULL);
   SDL_RenderPresent(rend);
 
+  SDL_Surface **surface_let =
+      (SDL_Surface **)malloc(sizeof(SDL_Surface *) * 26);
+  if (!surface_let) {
+    printf("error creating surface\n");
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+  SDL_Texture **tex_let = (SDL_Texture **)malloc(sizeof(SDL_Texture *) * 26);
+  if (!tex_let) {
+    SDL_DestroyRenderer(rend);
+    printf("error creating texture: %s\n", SDL_GetError());
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+    return 1;
+  }
+
+  char path[256] = "./files/images/A.png";
+  for (int l = 0; l < 26; l++) {
+    surface_let[l] = IMG_Load(path);
+    tex_let[l] = SDL_CreateTextureFromSurface(rend, surface_let[l]);
+    path[15] = 'B' + l;
+  }
+  SDL_FreeSurface(*surface_let);
+
   SDL_Surface **surface_all =
       (SDL_Surface **)malloc(sizeof(SDL_Surface *) * 26);
   if (!surface_all) {
@@ -71,14 +97,19 @@ int main() {
     return 1;
   }
 
-  char path[256] = "./files/images/a.png";
+  char pathth[256] = "./files/images/a.png";
   for (int l = 0; l < 26; l++) {
-    surface_all[l] = IMG_Load(path);
+    surface_all[l] = IMG_Load(pathth);
     tex_all[l] = SDL_CreateTextureFromSurface(rend, surface_all[l]);
-    path[15] = 'b' + l;
+    pathth[15] = 'b' + l;
   }
+  SDL_FreeSurface(*surface_all);
 
-  Menu(rend, win, tex_all);
+  Menu(rend, win, tex_all, tex_let);
+  cout << "quitted";
+  SDL_DestroyRenderer(rend);
+  SDL_DestroyWindow(win);
+  SDL_Quit();
 
   return 0;
 }
