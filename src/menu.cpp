@@ -91,13 +91,13 @@ void graphics(int r, SDL_Renderer *rend, SDL_Texture **tex_all) {
   if (r > 0 && r < 6) {
     SDL_Rect Hang;
     SDL_QueryTexture(tex_all[r + 7], NULL, NULL, &Hang.w, &Hang.h);
-    Hang.w = 200;
-    Hang.h = 510;
+    Hang.w = 275;
+    Hang.h = 475;
     Hang.x = 797;
-    Hang.y = 193;
+    Hang.y = 150;
 
     // SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[r + 7], NULL, NULL);
+    SDL_RenderCopy(rend, tex_all[r + 7], NULL, &Hang);
     // SDL_RenderPresent(rend);
   }
 }
