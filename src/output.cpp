@@ -11,7 +11,6 @@ using namespace std;
 
 int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
          SDL_Texture **tex_let) {
-
   cout << word;
   unsigned int i, c = 0;
   int close_requested = 0, failure = 0;
@@ -35,44 +34,18 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[0] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'a') {
-              // printf("aaa \n");
               if (estnet[0] == 0)
                 estnet[0] = 1;
-              ///////////////////////////////////////////////////////////////////////////
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[0], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 66;
-              right.y = 83;
+              graphics_let(200, rend, tex_all, tex_let, i);
+            }
+          }
 
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[0], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
-              /////////////////////////////////////////////////////////////////////////
-            }
-          }
           if (estnet[0] == 0) {
-            {
-              ++failure;
-              SDL_Rect wrong;
-              SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-              wrong.w = 58;
-              wrong.h = 70;
-              wrong.x = 58;
-              wrong.y = 75;
-              SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
-            }
+
+            ++failure;
+            graphics_let(300, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[0] = 1;
         }
@@ -81,40 +54,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[1] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'b') {
-              // printf("bbb \n");
               if (estnet[1] == 0)
                 estnet[1] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              SDL_QueryTexture(tex_let[1], NULL, NULL, &rect.w, &rect.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 158;
-              right.y = 83;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[1], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(201, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[1] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 150;
-            wrong.y = 75;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(301, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[1] = 1;
         }
@@ -123,40 +72,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[2] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'c') {
-              // printf("ccc \n");
               if (estnet[2] == 0)
                 estnet[2] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              SDL_QueryTexture(tex_let[2], NULL, NULL, &rect.w, &rect.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 239;
-              right.y = 83;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[2], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(202, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[2] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 231;
-            wrong.y = 75;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(302, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[2] = 1;
         }
@@ -164,40 +89,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[3] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'd') {
-              // printf("ddd \n");
               if (estnet[3] == 0)
                 estnet[3] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              SDL_QueryTexture(tex_let[3], NULL, NULL, &rect.w, &rect.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 325;
-              right.y = 83;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[3], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(203, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[3] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 317;
-            wrong.y = 75;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(303, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[3] = 1;
         }
@@ -205,41 +106,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[4] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'e') {
-              // printf("eee \n");
               if (estnet[4] == 0)
                 estnet[4] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              SDL_QueryTexture(tex_let[4], NULL, NULL, &rect.w, &rect.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 414;
-              right.y = 83;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[4], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(204, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[4] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 406;
-            wrong.y = 75;
-
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(304, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[4] = 1;
         }
@@ -247,40 +123,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[5] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'f') {
-              // printf("fff \n");
               if (estnet[5] == 0)
                 estnet[5] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              SDL_QueryTexture(tex_let[5], NULL, NULL, &rect.w, &rect.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 491;
-              right.y = 83;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[5], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(205, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[5] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 483;
-            wrong.y = 75;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(305, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[5] = 1;
         }
@@ -288,40 +140,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[6] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'g') {
-              // printf("ggg \n");
               if (estnet[6] == 0)
                 estnet[6] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              SDL_QueryTexture(tex_let[6], NULL, NULL, &rect.w, &rect.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 576;
-              right.y = 83;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[6], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(206, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[6] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 568;
-            wrong.y = 75;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(306, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[6] = 1;
         }
@@ -329,41 +157,17 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[7] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'h') {
-              // printf("hhh \n");
               if (estnet[7] == 0)
                 estnet[7] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[7], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 71;
-              right.y = 159;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[7], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(207, rend, tex_all, tex_let, i);
             }
           }
 
           if (estnet[7] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 64;
-            wrong.y = 151;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(307, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[7] = 1;
         }
@@ -372,40 +176,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[8] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'i') {
-              // printf("iii \n");
               if (estnet[8] == 0)
                 estnet[8] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              SDL_QueryTexture(tex_let[8], NULL, NULL, &rect.w, &rect.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 162;
-              right.y = 159;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[8], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(208, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[8] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 154;
-            wrong.y = 151;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(308, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[8] = 1;
         }
@@ -414,41 +194,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[9] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'j') {
-              // printf("jjj \n");
               if (estnet[9] == 0)
                 estnet[9] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              SDL_QueryTexture(tex_let[9], NULL, NULL, &rect.w, &rect.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 239;
-              right.y = 159;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[9], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(209, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[9] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 231;
-            wrong.y = 151;
-
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(309, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[9] = 1;
         }
@@ -456,40 +211,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[10] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'k') {
-              // printf("kkk \n");
               if (estnet[10] == 0)
                 estnet[10] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[10], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 325;
-              right.y = 159;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[10], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(210, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[10] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 317;
-            wrong.y = 151;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(310, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[10] = 1;
         }
@@ -497,40 +228,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[11] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'l') {
-              // printf("lll \n");
               if (estnet[11] == 0)
                 estnet[11] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[11], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 413;
-              right.y = 159;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[11], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(211, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[11] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 405;
-            wrong.y = 151;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(311, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[11] = 1;
         }
@@ -538,40 +245,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[12] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'm') {
-              // printf("mmm \n");
               if (estnet[12] == 0)
                 estnet[12] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[12], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 480;
-              right.y = 159;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[12], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(212, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[12] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 472;
-            wrong.y = 151;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(312, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[12] = 1;
         }
@@ -579,40 +262,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[13] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'n') {
-              // printf("nnn \n");
               if (estnet[13] == 0)
                 estnet[13] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[13], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 576;
-              right.y = 159;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[13], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(213, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[13] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 568;
-            wrong.y = 151;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(313, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[13] = 1;
         }
@@ -621,40 +280,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[14] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'o') {
-              // printf("ooo \n");
               if (estnet[14] == 0)
                 estnet[14] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[14], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 70;
-              right.y = 235;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[14], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(214, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[14] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 62;
-            wrong.y = 247;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(314, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[14] = 1;
         }
@@ -663,40 +298,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[15] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'p') {
-              // printf("ppp \n");
               if (estnet[15] == 0)
                 estnet[15] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[15], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 158;
-              right.y = 235;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[15], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(215, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[15] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 150;
-            wrong.y = 227;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(315, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[15] = 1;
         }
@@ -704,40 +315,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[16] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'q') {
-              // printf("qqq \n");
               if (estnet[16] == 0)
                 estnet[16] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[16], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 234;
-              right.y = 235;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[16], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(216, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[16] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 226;
-            wrong.y = 227;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(316, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[16] = 1;
         }
@@ -745,40 +332,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[17] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'r') {
-              // printf("rrr \n");
               if (estnet[17] == 0)
                 estnet[17] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[17], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 323;
-              right.y = 235;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[17], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(217, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[17] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 315;
-            wrong.y = 227;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(317, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[17] = 1;
         }
@@ -786,40 +349,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[18] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 's') {
-              // printf("sss \n");
               if (estnet[18] == 0)
                 estnet[18] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[18], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 410;
-              right.y = 235;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[18], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(218, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[18] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 402;
-            wrong.y = 227;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(318, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[18] = 1;
         }
@@ -827,40 +366,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[19] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 't') {
-              // printf("ttt \n");
               if (estnet[19] == 0)
                 estnet[19] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[19], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 486;
-              right.y = 235;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[19], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(219, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[19] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 478;
-            wrong.y = 227;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(319, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[19] = 1;
         }
@@ -868,40 +383,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[20] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'u') {
-              // printf("uuu \n");
               if (estnet[20] == 0)
                 estnet[20] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[20], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 570;
-              right.y = 235;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[20], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(220, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[20] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 562;
-            wrong.y = 227;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(320, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[20] = 1;
         }
@@ -909,40 +400,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[21] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'v') {
-              // printf("vvv \n");
               if (estnet[21] == 0)
                 estnet[21] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[21], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 147;
-              right.y = 310;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[21], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(221, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[21] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 139;
-            wrong.y = 302;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(321, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[21] = 1;
         }
@@ -950,40 +417,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[22] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'w') {
-              // printf("www \n");
               if (estnet[22] == 0)
                 estnet[22] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[22], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 226;
-              right.y = 310;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[22], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(222, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[22] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 218;
-            wrong.y = 302;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(322, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[22] = 1;
         }
@@ -991,40 +434,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[23] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'x') {
-              // printf("xxx \n");
               if (estnet[23] == 0)
                 estnet[23] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[23], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 323;
-              right.y = 310;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[23], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(223, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[23] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 315;
-            wrong.y = 302;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(323, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[23] = 1;
         }
@@ -1032,40 +451,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[24] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'y') {
-              // printf("yyy \n");
               if (estnet[24] == 0)
                 estnet[24] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[24], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 403;
-              right.y = 310;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[24], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(224, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[24] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 395;
-            wrong.y = 302;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(324, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[24] = 1;
         }
@@ -1073,40 +468,16 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
             status[25] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'z') {
-              // printf("zzz \n");
               if (estnet[25] == 0)
                 estnet[25] = 1;
-              SDL_Rect rect;
-              SDL_Rect right;
               ++c;
-              SDL_QueryTexture(tex_let[25], NULL, NULL, &rect.w, &rect.h);
-              SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
-              right.w = 58;
-              right.h = 70;
-              right.x = 491;
-              right.y = 310;
-
-              rect.w = 58;
-              rect.h = 70;
-              rect.x = 28 + i * 70;
-              rect.y = 550;
-              SDL_RenderCopy(rend, tex_let[25], NULL, &rect);
-              SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+              graphics_let(225, rend, tex_all, tex_let, i);
             }
           }
           if (estnet[25] == 0) {
             ++failure;
-            SDL_Rect wrong;
-            SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-            wrong.w = 58;
-            wrong.h = 70;
-            wrong.x = 483;
-            wrong.y = 302;
-            SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
+            graphics_let(325, rend, tex_all, tex_let, i);
           }
-          /*cout << endl;
-          cout << failure << endl;
-          cout << c << endl;*/
 
           status[25] = 1;
         }
@@ -1115,37 +486,13 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
           Menu(rend, win, tex_all, tex_let);
         }
         graphics(failure, rend, tex_all);
-        /*
-                if (failure == 1) {
-                  cout << endl << "fail1";
 
-                  SDL_RenderCopy(rend, tex_all[8], NULL, NULL);
-                }
-                if (failure == 2) {
-                  cout << endl << "fail2";
-                  SDL_RenderCopy(rend, tex_all[9], NULL, NULL);
-                }
-                if (failure == 3) {
-                  cout << endl << "fail3";
-                  SDL_RenderCopy(rend, tex_all[10], NULL, NULL);
-                }
-                if (failure == 4) {
-                  cout << endl << "fail4";
-                  SDL_RenderCopy(rend, tex_all[11], NULL, NULL);
-                }
-                if (failure == 5) {
-                  cout << endl << "fail5";
-                  SDL_RenderCopy(rend, tex_all[12], NULL, NULL);
-                }
-        */
         SDL_RenderPresent(rend);
         if (failure == 6) {
-          //  cout << "YOU LOST!!";
           return 7;
         }
 
         if (c == strlen(word)) {
-          //  cout << "YOU WON!!";
           return 5;
         }
       }
@@ -1153,14 +500,11 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
   }
   SDL_DestroyRenderer(rend);
   SDL_DestroyWindow(win);
-
-  // SDL_Quit();
   return 0;
 }
 
 int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
           SDL_Texture **tex_let) {
-  // cout << "yolo" << endl;
 
   int i = 0, l, b = 0, k, h;
   srand(time(NULL));
