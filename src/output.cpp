@@ -30,7 +30,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
       if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
 
-        if (mouse_x > 66 && mouse_x < 123 && mouse_y > 83 && mouse_y < 128 &&
+        if (mouse_x > 37 && mouse_x < 75 && mouse_y > 32 && mouse_y < 70 &&
             status[0] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'a') {
@@ -50,7 +50,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
           status[0] = 1;
         }
 
-        if (mouse_x > 158 && mouse_x < 204 && mouse_y > 83 && mouse_y < 128 &&
+        if (mouse_x > 97 && mouse_x < 130 && mouse_y > 32 && mouse_y < 70 &&
             status[1] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'b') {
@@ -68,7 +68,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
           status[1] = 1;
         }
 
-        if (mouse_x > 239 && mouse_x < 285 && mouse_y > 83 && mouse_y < 128 &&
+        if (mouse_x > 151 && mouse_x < 184 && mouse_y > 32 && mouse_y < 70 &&
             status[2] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'c') {
@@ -85,7 +85,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[2] = 1;
         }
-        if (mouse_x > 325 && mouse_x < 373 && mouse_y > 83 && mouse_y < 128 &&
+        if (mouse_x > 209 && mouse_x < 243 && mouse_y > 32 && mouse_y < 70 &&
             status[3] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'd') {
@@ -102,7 +102,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[3] = 1;
         }
-        if (mouse_x > 414 && mouse_x < 452 && mouse_y > 83 && mouse_y < 128 &&
+        if (mouse_x > 268 && mouse_x < 298 && mouse_y > 32 && mouse_y < 70 &&
             status[4] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'e') {
@@ -119,7 +119,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[4] = 1;
         }
-        if (mouse_x > 491 && mouse_x < 531 && mouse_y > 83 && mouse_y < 128 &&
+        if (mouse_x > 321 && mouse_x < 347 && mouse_y > 32 && mouse_y < 70 &&
             status[5] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'f') {
@@ -136,7 +136,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[5] = 1;
         }
-        if (mouse_x > 567 && mouse_x < 621 && mouse_y > 83 && mouse_y < 128 &&
+        if (mouse_x > 372 && mouse_x < 410 && mouse_y > 32 && mouse_y < 70 &&
             status[6] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'g') {
@@ -153,7 +153,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[6] = 1;
         }
-        if (mouse_x > 71 && mouse_x < 120 && mouse_y > 159 && mouse_y < 216 &&
+        if (mouse_x > 38 && mouse_x < 75 && mouse_y > 94 && mouse_y < 131 &&
             status[7] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'h') {
@@ -172,7 +172,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
           status[7] = 1;
         }
 
-        if (mouse_x > 162 && mouse_x < 193 && mouse_y > 159 && mouse_y < 216 &&
+        if (mouse_x > 98 && mouse_x < 127 && mouse_y > 94 && mouse_y < 131 &&
             status[8] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'i') {
@@ -190,7 +190,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
           status[8] = 1;
         }
 
-        if (mouse_x > 239 && mouse_x < 283 && mouse_y > 159 && mouse_y < 216 &&
+        if (mouse_x > 155 && mouse_x < 184 && mouse_y > 94 && mouse_y < 140 &&
             status[9] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'j') {
@@ -207,7 +207,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[9] = 1;
         }
-        if (mouse_x > 325 && mouse_x < 376 && mouse_y > 159 && mouse_y < 216 &&
+        if (mouse_x > 209 && mouse_x < 248 && mouse_y > 94 && mouse_y < 131 &&
             status[10] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'k') {
@@ -224,7 +224,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[10] = 1;
         }
-        if (mouse_x > 413 && mouse_x < 451 && mouse_y > 159 && mouse_y < 216 &&
+        if (mouse_x > 268 && mouse_x < 298 && mouse_y > 94 && mouse_y < 131 &&
             status[11] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'l') {
@@ -241,7 +241,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[11] = 1;
         }
-        if (mouse_x > 480 && mouse_x < 544 && mouse_y > 159 && mouse_y < 216 &&
+        if (mouse_x > 314 && mouse_x < 357 && mouse_y > 94 && mouse_y < 131 &&
             status[12] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'm') {
@@ -258,7 +258,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[12] = 1;
         }
-        if (mouse_x > 567 && mouse_x < 619 && mouse_y > 159 && mouse_y < 216 &&
+        if (mouse_x > 373 && mouse_x < 409 && mouse_y > 94 && mouse_y < 131 &&
             status[13] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'n') {
@@ -276,7 +276,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
           status[13] = 1;
         }
 
-        if (mouse_x > 70 && mouse_x < 128 && mouse_y > 235 && mouse_y < 288 &&
+        if (mouse_x > 41 && mouse_x < 79 && mouse_y > 151 && mouse_y < 186 &&
             status[14] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'o') {
@@ -294,7 +294,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
           status[14] = 1;
         }
 
-        if (mouse_x > 158 && mouse_x < 200 && mouse_y > 235 && mouse_y < 288 &&
+        if (mouse_x > 98 && mouse_x < 129 && mouse_y > 151 && mouse_y < 186 &&
             status[15] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'p') {
@@ -311,7 +311,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[15] = 1;
         }
-        if (mouse_x > 234 && mouse_x < 291 && mouse_y > 235 && mouse_y < 288 &&
+        if (mouse_x > 151 && mouse_x < 189 && mouse_y > 151 && mouse_y < 186 &&
             status[16] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'q') {
@@ -328,7 +328,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[16] = 1;
         }
-        if (mouse_x > 323 && mouse_x < 373 && mouse_y > 235 && mouse_y < 288 &&
+        if (mouse_x > 211 && mouse_x < 243 && mouse_y > 151 && mouse_y < 186 &&
             status[17] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'r') {
@@ -345,7 +345,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[17] = 1;
         }
-        if (mouse_x > 410 && mouse_x < 453 && mouse_y > 235 && mouse_y < 288 &&
+        if (mouse_x > 266 && mouse_x < 299 && mouse_y > 151 && mouse_y < 186 &&
             status[18] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 's') {
@@ -362,7 +362,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[18] = 1;
         }
-        if (mouse_x > 486 && mouse_x < 537 && mouse_y > 235 && mouse_y < 288 &&
+        if (mouse_x > 319 && mouse_x < 352 && mouse_y > 151 && mouse_y < 186 &&
             status[19] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 't') {
@@ -379,7 +379,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[19] = 1;
         }
-        if (mouse_x > 570 && mouse_x < 619 && mouse_y > 235 && mouse_y < 288 &&
+        if (mouse_x > 373 && mouse_x < 409 && mouse_y > 151 && mouse_y < 186 &&
             status[20] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'u') {
@@ -396,7 +396,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[20] = 1;
         }
-        if (mouse_x > 147 && mouse_x < 205 && mouse_y > 310 && mouse_y < 357 &&
+        if (mouse_x > 92 && mouse_x < 131 && mouse_y > 210 && mouse_y < 249 &&
             status[21] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'v') {
@@ -413,7 +413,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[21] = 1;
         }
-        if (mouse_x > 226 && mouse_x < 304 && mouse_y > 310 && mouse_y < 357 &&
+        if (mouse_x > 143 && mouse_x < 197 && mouse_y > 210 && mouse_y < 249 &&
             status[22] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'w') {
@@ -430,7 +430,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[22] = 1;
         }
-        if (mouse_x > 323 && mouse_x < 375 && mouse_y > 310 && mouse_y < 357 &&
+        if (mouse_x > 323 && mouse_x < 375 && mouse_y > 210 && mouse_y < 249 &&
             status[23] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'x') {
@@ -447,7 +447,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[23] = 1;
         }
-        if (mouse_x > 403 && mouse_x < 459 && mouse_y > 310 && mouse_y < 357 &&
+        if (mouse_x > 403 && mouse_x < 459 && mouse_y > 210 && mouse_y < 249 &&
             status[24] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'y') {
@@ -464,7 +464,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[24] = 1;
         }
-        if (mouse_x > 491 && mouse_x < 539 && mouse_y > 310 && mouse_y < 357 &&
+        if (mouse_x > 491 && mouse_x < 539 && mouse_y > 210 && mouse_y < 249 &&
             status[25] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'z') {
@@ -526,12 +526,12 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 
   cout << word;
   cout << l;
-  graphics(1, rend, tex_all);
+  graphics(51, rend, tex_all);
   /*  SDL_RenderClear(rend);
     SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
 
   while (b < l) {
-    graphics_b(2, rend, tex_all, b);
+    graphics_b(rend, tex_all, b);
     /*    SDL_Rect rect;
         SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
 
@@ -550,18 +550,19 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
     return 0;
 
   if (h == 7) {
-    graphics(3, rend, tex_all);
+    graphics(52, rend, tex_all);
     /*
         SDL_RenderClear(rend);
         SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
         SDL_RenderPresent(rend);*/
 
   } else if (h == 5) {
-    graphics(4, rend, tex_all);
+    graphics(53, rend, tex_all);
     /*    SDL_RenderClear(rend);
         SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
         SDL_RenderPresent(rend);*/
   }
+
   int close_requested = 0;
   while (!close_requested) {
     SDL_Event event;
@@ -605,36 +606,41 @@ int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 
   cout << word;
   cout << l;
-  SDL_RenderClear(rend);
-  SDL_RenderCopy(rend, tex_all[2], NULL, NULL);
+  graphics(51, rend, tex_all);
+  /*  SDL_RenderClear(rend);
+    SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
 
-  SDL_Rect rect;
   while (b < l) {
-    SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
+    graphics_b(rend, tex_all, b);
+    /*    SDL_Rect rect;
+        SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
 
-    rect.w = 70;
-    rect.h = 30;
-    rect.x = 25 + (b * 70);
-    rect.y = 600;
-    SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
-    SDL_RenderPresent(rend);
-    SDL_Delay(1000 / 60);
+        rect.w = 70;
+        rect.h = 30;
+        rect.x = 25 + (b * 70);
+        rect.y = 600;
+        SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
+        SDL_RenderPresent(rend);
+        SDL_Delay(1000 / 60);*/
     b++;
   }
   h = Hang(rend, win, word, tex_all, tex_let);
+
   if (h == 0)
     return 0;
 
   if (h == 7) {
+    graphics(52, rend, tex_all);
+    /*
+        SDL_RenderClear(rend);
+        SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
+        SDL_RenderPresent(rend);*/
 
-    SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
-    SDL_RenderPresent(rend);
   } else if (h == 5) {
-
-    SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
-    SDL_RenderPresent(rend);
+    graphics(53, rend, tex_all);
+    /*    SDL_RenderClear(rend);
+        SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
+        SDL_RenderPresent(rend);*/
   }
   int close_requested = 0;
   while (!close_requested) {
@@ -679,21 +685,23 @@ int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 
   // cout << word;
   // cout << l;
-  SDL_RenderClear(rend);
-  SDL_RenderCopy(rend, tex_all[2], NULL, NULL);
+  graphics(51, rend, tex_all);
+  /*  SDL_RenderClear(rend);
+    SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
   // cout << "yolo" << endl;
 
-  SDL_Rect rect;
   while (b < l) {
-    SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
+    graphics_b(rend, tex_all, b);
+    /*    SDL_Rect rect;
+        SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
 
-    rect.w = 70;
-    rect.h = 30;
-    rect.x = 25 + (b * 70);
-    rect.y = 600;
-    SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
-    SDL_RenderPresent(rend);
-    SDL_Delay(1000 / 60);
+        rect.w = 70;
+        rect.h = 30;
+        rect.x = 25 + (b * 70);
+        rect.y = 600;
+        SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
+        SDL_RenderPresent(rend);
+        SDL_Delay(1000 / 60);*/
     b++;
   }
   h = Hang(rend, win, word, tex_all, tex_let);
@@ -702,15 +710,17 @@ int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
     return 0;
 
   if (h == 7) {
+    graphics(52, rend, tex_all);
+    /*
+        SDL_RenderClear(rend);
+        SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
+        SDL_RenderPresent(rend);*/
 
-    SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
-    SDL_RenderPresent(rend);
   } else if (h == 5) {
-
-    SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
-    SDL_RenderPresent(rend);
+    graphics(53, rend, tex_all);
+    /*    SDL_RenderClear(rend);
+        SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
+        SDL_RenderPresent(rend);*/
   }
   int close_requested = 0;
   while (!close_requested) {
