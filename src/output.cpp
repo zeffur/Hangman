@@ -482,7 +482,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
           status[25] = 1;
         }
 
-        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
+        if (mouse_x > 557 && mouse_x < 684 && mouse_y > 415 && mouse_y < 486) {
           Menu(rend, win, tex_all, tex_let);
         }
         graphics(failure, rend, tex_all);
@@ -526,20 +526,22 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 
   cout << word;
   cout << l;
-  SDL_RenderClear(rend);
-  SDL_RenderCopy(rend, tex_all[2], NULL, NULL);
+  graphics(1, rend, tex_all);
+  /*  SDL_RenderClear(rend);
+    SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
 
-  SDL_Rect rect;
   while (b < l) {
-    SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
+    graphics_b(2, rend, tex_all, b);
+    /*    SDL_Rect rect;
+        SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
 
-    rect.w = 70;
-    rect.h = 30;
-    rect.x = 25 + (b * 70);
-    rect.y = 600;
-    SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
-    SDL_RenderPresent(rend);
-    SDL_Delay(1000 / 60);
+        rect.w = 70;
+        rect.h = 30;
+        rect.x = 25 + (b * 70);
+        rect.y = 600;
+        SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
+        SDL_RenderPresent(rend);
+        SDL_Delay(1000 / 60);*/
     b++;
   }
   h = Hang(rend, win, word, tex_all, tex_let);
@@ -548,15 +550,17 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
     return 0;
 
   if (h == 7) {
-
-    SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
-    SDL_RenderPresent(rend);
+    graphics(3, rend, tex_all);
+    /*
+        SDL_RenderClear(rend);
+        SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
+        SDL_RenderPresent(rend);*/
 
   } else if (h == 5) {
-    SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
-    SDL_RenderPresent(rend);
+    graphics(4, rend, tex_all);
+    /*    SDL_RenderClear(rend);
+        SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
+        SDL_RenderPresent(rend);*/
   }
   int close_requested = 0;
   while (!close_requested) {
@@ -570,7 +574,7 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
       int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
-        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
+        if (mouse_x > 557 && mouse_x < 684 && mouse_y > 415 && mouse_y < 486) {
           Menu(rend, win, tex_all, tex_let);
         }
       }
@@ -644,7 +648,7 @@ int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
       int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
-        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
+        if (mouse_x > 557 && mouse_x < 684 && mouse_y > 415 && mouse_y < 486) {
           Menu(rend, win, tex_all, tex_let);
         }
       }
@@ -720,7 +724,7 @@ int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
       int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
-        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
+        if (mouse_x > 557 && mouse_x < 684 && mouse_y > 415 && mouse_y < 486) {
           Menu(rend, win, tex_all, tex_let);
         }
       }
@@ -744,7 +748,7 @@ int Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
           event.type == SDL_MOUSEBUTTONDOWN) {
         // cout << "uhuhu" << endl;
 
-        if (mouse_x > 900 && mouse_x < 1080 && mouse_y > 600 && mouse_y < 720) {
+        if (mouse_x > 557 && mouse_x < 684 && mouse_y > 415 && mouse_y < 486) {
           Menu(rend, win, tex_all, tex_let);
         }
       }
@@ -769,20 +773,23 @@ int Levels(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
       int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
-        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 300 && mouse_y < 360) {
+        if (mouse_x > 296 && mouse_x < 400 && mouse_y > 200 && mouse_y < 233) {
 
           File1(rend, win, tex_all, tex_let);
           return 0;
         }
-        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 400 && mouse_y < 460) {
+        if (mouse_x > 260 && mouse_x < 433 && mouse_y > 264 && mouse_y < 297) {
 
           File2(rend, win, tex_all, tex_let);
           return 0;
         }
-        if (mouse_x > 400 && mouse_x < 600 && mouse_y > 500 && mouse_y < 560) {
+        if (mouse_x > 297 && mouse_x < 397 && mouse_y > 329 && mouse_y < 362) {
 
           File3(rend, win, tex_all, tex_let);
           return 0;
+        }
+        if (mouse_x > 557 && mouse_x < 684 && mouse_y > 415 && mouse_y < 486) {
+          Menu(rend, win, tex_all, tex_let);
         }
       }
     }

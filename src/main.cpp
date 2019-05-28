@@ -11,7 +11,7 @@ int main() {
   }
 
   SDL_Window *win = SDL_CreateWindow("HANGMAN", SDL_WINDOWPOS_CENTERED,
-                                     SDL_WINDOWPOS_CENTERED, 1080, 720, 0);
+                                     SDL_WINDOWPOS_CENTERED, 700, 500, 0);
 
   if (!win) {
     printf("error creating window: %s\n", SDL_GetError());
@@ -28,8 +28,7 @@ int main() {
     SDL_Quit();
     return 1;
   }
-
-  SDL_Surface *surface_loading = IMG_Load("./files/images/loading.png");
+  SDL_Surface *surface_loading = IMG_Load("./files/images/loading.bmp");
   if (!surface_loading) {
     printf("error creating surface\n");
     SDL_DestroyRenderer(rend);
@@ -48,8 +47,16 @@ int main() {
     return 1;
   }
 
+  SDL_Rect rect;
+  SDL_QueryTexture(tex_load, NULL, NULL, &rect.w, &rect.h);
+
+  rect.w = 420;
+  rect.h = 60;
+  rect.x = 140;
+  rect.y = 193;
+
   SDL_RenderClear(rend);
-  SDL_RenderCopy(rend, tex_load, NULL, NULL);
+  SDL_RenderCopy(rend, tex_load, NULL, &rect);
   SDL_RenderPresent(rend);
 
   SDL_Surface **surface_let =
@@ -88,7 +95,7 @@ int main() {
     return 1;
   }
 
-  SDL_Texture **tex_all = (SDL_Texture **)malloc(sizeof(SDL_Texture *) * 26);
+  SDL_Texture **tex_all = (SDL_Texture **)malloc(sizeof(SDL_Texture *) * 25);
   if (!tex_all) {
     SDL_DestroyRenderer(rend);
     printf("error creating texture: %s\n", SDL_GetError());
@@ -98,7 +105,7 @@ int main() {
   }
 
   char pathth[256] = "./files/images/a.bmp";
-  for (int l = 0; l < 26; l++) {
+  for (int l = 0; l < 25; l++) {
     surface_all[l] = IMG_Load(pathth);
     tex_all[l] = SDL_CreateTextureFromSurface(rend, surface_all[l]);
     pathth[15] = 'b' + l;
@@ -106,7 +113,6 @@ int main() {
   SDL_FreeSurface(*surface_all);
 
   Menu(rend, win, tex_all, tex_let);
-  cout << "quitted";
   SDL_DestroyRenderer(rend);
   SDL_DestroyWindow(win);
   SDL_Quit();

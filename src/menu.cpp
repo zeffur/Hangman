@@ -8,9 +8,10 @@ using namespace std;
 
 int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
          SDL_Texture **tex_let) {
+
+  SDL_SetRenderDrawColor(rend, 150, 0, 0, 150);
   SDL_RenderClear(rend);
-  SDL_RenderCopy(rend, tex_all[0], NULL, NULL);
-  SDL_RenderPresent(rend);
+  graphics(0, rend, tex_all);
   int close_requested = 0;
   while (!close_requested) {
     SDL_Event event;
@@ -23,16 +24,16 @@ int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
       int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
-        if (mouse_x > 448 && mouse_x < 587 && mouse_y > 307 && mouse_y < 360) {
+        if (mouse_x > 297 && mouse_x < 388 && mouse_y > 197 && mouse_y < 243) {
           graphics(11, rend, tex_all);
           Levels(rend, win, tex_all, tex_let);
         }
 
-        if (mouse_x > 443 && mouse_x < 593 && mouse_y > 397 && mouse_y < 453) {
+        if (mouse_x > 285 && mouse_x < 387 && mouse_y > 260 && mouse_y < 305) {
           graphics(12, rend, tex_all);
           Help(rend, win, tex_all, tex_let);
         }
-        if (mouse_x > 447 && mouse_x < 574 && mouse_y > 484 && mouse_y < 537) {
+        if (mouse_x > 286 && mouse_x < 378 && mouse_y > 319 && mouse_y < 363) {
           graphics(13, rend, tex_all);
           exit(0);
         }
@@ -46,43 +47,155 @@ int Menu(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 }
 
 void graphics(int r, SDL_Renderer *rend, SDL_Texture **tex_all) {
+  if (r == 0) {
+    SDL_Rect title;
+    SDL_Rect opt;
+    SDL_QueryTexture(tex_all[0], NULL, NULL, &title.w, &title.h);
+    SDL_QueryTexture(tex_all[17], NULL, NULL, &opt.w, &opt.h);
+    title.w = 700;
+    title.h = 100;
+    title.x = 0;
+    title.y = 0;
+
+    opt.w = 115;
+    opt.h = 190;
+    opt.x = 281;
+    opt.y = 190;
+    SDL_RenderCopy(rend, tex_all[0], NULL, &title);
+    SDL_RenderCopy(rend, tex_all[17], NULL, &opt);
+    SDL_RenderPresent(rend);
+  }
+  if (r == 1) {
+    SDL_Rect alph;
+    SDL_Rect human;
+    SDL_QueryTexture(tex_all[2], NULL, NULL, &alph.w, &alph.h);
+    SDL_QueryTexture(tex_all[19], NULL, NULL, &human.w, &human.h);
+    alph.w = 375;
+    alph.h = 226;
+    alph.x = 28;
+    alph.y = 21;
+
+    human.w = 84;
+    human.h = 250;
+    human.x = 518;
+    human.y = 190;
+    SDL_SetRenderDrawColor(rend, 255, 255, 255, 255);
+    SDL_RenderClear(rend);
+    SDL_RenderCopy(rend, tex_all[2], NULL, &alph);
+    SDL_RenderCopy(rend, tex_all[19], NULL, &human);
+  }
+
   if (r == 11) {
     SDL_Rect playbut;
+    SDL_Rect title;
+    SDL_Rect levels;
+    SDL_Rect back;
+
     SDL_QueryTexture(tex_all[13], NULL, NULL, &playbut.w, &playbut.h);
-    playbut.w = 234;
-    playbut.h = 105;
-    playbut.x = 407;
-    playbut.y = 284;
+    SDL_QueryTexture(tex_all[0], NULL, NULL, &title.w, &title.h);
+    SDL_QueryTexture(tex_all[1], NULL, NULL, &levels.w, &levels.h);
+    SDL_QueryTexture(tex_all[18], NULL, NULL, &back.w, &back.h);
+
+    playbut.w = 173;
+    playbut.h = 92;
+    playbut.x = 253;
+    playbut.y = 176;
+
+    title.w = 700;
+    title.h = 100;
+    title.x = 0;
+    title.y = 0;
+
+    levels.w = 368;
+    levels.h = 223;
+    levels.x = 168;
+    levels.y = 138;
+
+    back.w = 127;
+    back.h = 71;
+    back.x = 557;
+    back.y = 415;
     SDL_RenderCopy(rend, tex_all[13], NULL, &playbut);
     SDL_RenderPresent(rend);
     SDL_Delay(100);
 
     SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[1], NULL, NULL);
+    SDL_RenderCopy(rend, tex_all[0], NULL, &title);
+    SDL_RenderCopy(rend, tex_all[1], NULL, &levels);
+    SDL_RenderCopy(rend, tex_all[18], NULL, &back);
     SDL_RenderPresent(rend);
   }
   if (r == 12) {
     SDL_Rect helpbut;
+    SDL_Rect title;
+    SDL_Rect back;
+    SDL_Rect htp;
+    SDL_Rect first;
+    SDL_Rect second;
+    SDL_Rect third;
     SDL_QueryTexture(tex_all[14], NULL, NULL, &helpbut.w, &helpbut.h);
-    helpbut.w = 302;
-    helpbut.h = 136;
-    helpbut.x = 373;
-    helpbut.y = 358;
+    SDL_QueryTexture(tex_all[0], NULL, NULL, &title.w, &title.h);
+    SDL_QueryTexture(tex_all[18], NULL, NULL, &back.w, &back.h);
+    SDL_QueryTexture(tex_all[16], NULL, NULL, &htp.w, &htp.h);
+    SDL_QueryTexture(tex_all[22], NULL, NULL, &first.w, &first.h);
+    SDL_QueryTexture(tex_all[23], NULL, NULL, &second.w, &second.h);
+    SDL_QueryTexture(tex_all[24], NULL, NULL, &third.w, &third.h);
+    helpbut.w = 210;
+    SDL_RenderPresent(rend);
+    helpbut.h = 117;
+    helpbut.x = 233;
+    helpbut.y = 225;
+
+    title.w = 700;
+    title.h = 100;
+    title.x = 0;
+    title.y = 0;
+
+    back.w = 127;
+    back.h = 71;
+    back.x = 557;
+    back.y = 415;
+
+    htp.w = 165;
+    htp.h = 30;
+    htp.x = 258;
+    htp.y = 140;
+
+    first.w = 620;
+    first.h = 50;
+    first.x = 33;
+    first.y = 186;
+
+    second.w = 621;
+    second.h = 72;
+    second.x = 38;
+    second.y = 247;
+
+    third.w = 621;
+    third.h = 73;
+    third.x = 33;
+    third.y = 335;
+
     SDL_RenderCopy(rend, tex_all[14], NULL, &helpbut);
     SDL_RenderPresent(rend);
     SDL_Delay(100);
 
     SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[16], NULL, NULL);
+    SDL_RenderCopy(rend, tex_all[0], NULL, &title);
+    SDL_RenderCopy(rend, tex_all[18], NULL, &back);
+    SDL_RenderCopy(rend, tex_all[16], NULL, &htp);
+    SDL_RenderCopy(rend, tex_all[22], NULL, &first);
+    SDL_RenderCopy(rend, tex_all[23], NULL, &second);
+    SDL_RenderCopy(rend, tex_all[24], NULL, &third);
     SDL_RenderPresent(rend);
   }
   if (r == 13) {
     SDL_Rect quitbut;
     SDL_QueryTexture(tex_all[15], NULL, NULL, &quitbut.w, &quitbut.h);
-    quitbut.w = 298;
-    quitbut.h = 146;
-    quitbut.x = 376;
-    quitbut.y = 439;
+    quitbut.w = 211;
+    quitbut.h = 112;
+    quitbut.x = 233;
+    quitbut.y = 286;
 
     SDL_RenderCopy(rend, tex_all[15], NULL, &quitbut);
     SDL_RenderPresent(rend);
@@ -100,6 +213,19 @@ void graphics(int r, SDL_Renderer *rend, SDL_Texture **tex_all) {
     SDL_RenderCopy(rend, tex_all[r + 7], NULL, &Hang);
     // SDL_RenderPresent(rend);
   }
+}
+
+void graphics_b(int r, SDL_Renderer *rend, SDL_Texture **tex_all, int b) {
+  SDL_Rect rect;
+  SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
+
+  rect.w = 35;
+  rect.h = 20;
+  rect.x = 10 + (b * 35);
+  rect.y = 400;
+  SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
+  SDL_RenderPresent(rend);
+  SDL_Delay(1000 / 60);
 }
 
 void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
