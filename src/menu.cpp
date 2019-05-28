@@ -223,6 +223,24 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_RenderCopy(rend, tex_let[6], NULL, &rect);
     SDL_RenderCopy(rend, tex_all[6], NULL, &right);
   }
+  if (r == 207) {
+    SDL_Rect rect;
+    SDL_Rect right;
+    SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
+    SDL_QueryTexture(tex_let[7], NULL, NULL, &rect.w, &rect.h);
+    right.w = 58;
+    right.h = 70;
+    right.x = 71;
+    right.y = 159;
+
+    rect.w = 58;
+    rect.h = 70;
+    rect.x = 28 + i * 70;
+    rect.y = 550;
+    SDL_RenderCopy(rend, tex_let[7], NULL, &rect);
+    SDL_RenderCopy(rend, tex_all[6], NULL, &right);
+  }
+
   if (r == 208) {
     SDL_Rect rect;
     SDL_Rect right;

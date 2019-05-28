@@ -97,7 +97,7 @@ int main() {
     return 1;
   }
 
-  char pathth[256] = "./files/images/a.png";
+  char pathth[256] = "./files/images/a.bmp";
   for (int l = 0; l < 26; l++) {
     surface_all[l] = IMG_Load(pathth);
     tex_all[l] = SDL_CreateTextureFromSurface(rend, surface_all[l]);
