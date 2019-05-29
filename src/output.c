@@ -549,8 +549,7 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
     l = strlen(word);
     fclose(file);*/
 
-  //
-  // graphics(51, rend, tex_all);
+  graphics(51, rend, tex_all);
   /*  SDL_RenderClear(rend);
     SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
   while (b < l) {
