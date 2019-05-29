@@ -663,7 +663,7 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     right.w = 35;
     right.h = 36;
     right.x = 99;
-    right.y = 214;
+    right.y = 224;
 
     rect.w = 35;
     rect.h = 36;
@@ -679,8 +679,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
     right.w = 35;
     right.h = 36;
-    right.x = 226;
-    right.y = 214;
+    right.x = 150;
+    right.y = 224;
 
     rect.w = 35;
     rect.h = 36;
@@ -696,8 +696,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
     right.w = 35;
     right.h = 36;
-    right.x = 323;
-    right.y = 214;
+    right.x = 213;
+    right.y = 224;
 
     rect.w = 35;
     rect.h = 36;
@@ -713,8 +713,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
     right.w = 35;
     right.h = 36;
-    right.x = 403;
-    right.y = 214;
+    right.x = 271;
+    right.y = 224;
 
     rect.w = 35;
     rect.h = 36;
@@ -730,8 +730,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
     right.w = 35;
     right.h = 36;
-    right.x = 491;
-    right.y = 214;
+    right.x = 327;
+    right.y = 224;
 
     rect.w = 35;
     rect.h = 36;
@@ -746,7 +746,7 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 33;
+    wrong.x = 32;
     wrong.y = 32;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
@@ -756,7 +756,7 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     wrong.w = 35;
     wrong.h = 36;
     wrong.x = 92;
-    wrong.y = 31;
+    wrong.y = 32;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 302) {
@@ -764,8 +764,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 231;
-    wrong.y = 75;
+    wrong.x = 146;
+    wrong.y = 32;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 303) {
@@ -773,8 +773,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 317;
-    wrong.y = 75;
+    wrong.x = 204;
+    wrong.y = 32;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 304) {
@@ -783,7 +783,7 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     wrong.w = 35;
     wrong.h = 36;
     wrong.x = 406;
-    wrong.y = 75;
+    wrong.y = 32;
 
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
@@ -793,7 +793,7 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     wrong.w = 35;
     wrong.h = 36;
     wrong.x = 483;
-    wrong.y = 75;
+    wrong.y = 32;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 306) {
@@ -802,7 +802,7 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     wrong.w = 35;
     wrong.h = 36;
     wrong.x = 568;
-    wrong.y = 75;
+    wrong.y = 32;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 307) {

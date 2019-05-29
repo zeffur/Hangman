@@ -430,7 +430,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[22] = 1;
         }
-        if (mouse_x > 323 && mouse_x < 375 && mouse_y > 210 && mouse_y < 249 &&
+        if (mouse_x > 209 && mouse_x < 247 && mouse_y > 210 && mouse_y < 249 &&
             status[23] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'x') {
@@ -447,7 +447,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[23] = 1;
         }
-        if (mouse_x > 403 && mouse_x < 459 && mouse_y > 210 && mouse_y < 249 &&
+        if (mouse_x > 264 && mouse_x < 304 && mouse_y > 210 && mouse_y < 249 &&
             status[24] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'y') {
@@ -464,7 +464,7 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 
           status[24] = 1;
         }
-        if (mouse_x > 491 && mouse_x < 539 && mouse_y > 210 && mouse_y < 249 &&
+        if (mouse_x > 320 && mouse_x < 355 && mouse_y > 210 && mouse_y < 249 &&
             status[25] == 0) {
           for (i = 0; i < strlen(word); i++) {
             if (word[i] == 'z') {
