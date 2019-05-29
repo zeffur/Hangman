@@ -3,15 +3,12 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_timer.h>
-#include <fstream>
-#include <iostream>
 #include <string.h>
 #include <time.h>
-using namespace std;
 
 int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
          SDL_Texture **tex_let) {
-  cout << word;
+
   unsigned int i, c = 0;
   int close_requested = 0, failure = 0;
   int status[26], estnet[26];
@@ -550,14 +547,11 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
     l = strlen(word);
     fclose(file);*/
 
-  // cout << word;
-  // cout << l;
-  graphics(51, rend, tex_all);
+  //
+  // graphics(51, rend, tex_all);
   /*  SDL_RenderClear(rend);
     SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
-  cout << b << " | ";
   while (b < l) {
-    cout << b;
     graphics_b(rend, tex_all, b);
     /*    SDL_Rect rect;
         SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
@@ -618,7 +612,7 @@ int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
   char word[256];
 
   l = FileRead(word, 2);
-  // cout << word;
+  //
   graphics(51, rend, tex_all);
   /*  SDL_RenderClear(rend);
     SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
@@ -683,12 +677,11 @@ int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
   char word[256];
   l = FileRead(word, 3);
 
-  // cout << word;
-  // cout << l;
-  graphics(51, rend, tex_all);
+  //
+  // graphics(51, rend, tex_all);
   /*  SDL_RenderClear(rend);
     SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
-  // cout << "yolo" << endl;
+  // " << endl;
 
   while (b < l) {
     graphics_b(rend, tex_all, b);
@@ -756,7 +749,7 @@ int Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
       int buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
       if (buttons && SDL_BUTTON(SDL_BUTTON_LEFT) &&
           event.type == SDL_MOUSEBUTTONDOWN) {
-        // cout << "uhuhu" << endl;
+        // u" << endl;
 
         if (mouse_x > 557 && mouse_x < 684 && mouse_y > 415 && mouse_y < 486) {
           Menu(rend, win, tex_all, tex_let);

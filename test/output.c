@@ -7,9 +7,8 @@ CTEST(File, Read) {
   int s;
 
   // When
-  FileRead(NULL, &s);
+  FileRead(NULL, s);
 
   // Then
-  const double exp = 0.0;
-  ASSERT_DBL_NEAR(word, exp);
+  ASSERT_STR(NULL, word);
 }
