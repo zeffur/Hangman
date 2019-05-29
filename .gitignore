@@ -1,2 +1,4 @@
 bin/main
+bin/testing
 build/*.o
+build/test/*.o
