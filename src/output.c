@@ -516,8 +516,12 @@ int FileRead(char *word, int s) {
   case 3:
     file = fopen("./files/Length3.txt", "r");
     break;
+  default:
+    return -5;
+    break;	
   }
-
+  if(file==NULL)
+	return -1;
   k = rand() % 10;
   while (i < k) {
     fscanf(file, "%s", word);
