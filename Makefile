@@ -4,7 +4,6 @@ BIN_DIR := ./bin
 BUILD_DIR := ./build
 BUILDTEST_DIR := ./build/test
 SRC_DIR := ./src
-#BINTEST_DIR := ./bin/test
 TEST_DIR := ./test
 CC := gcc -Wall -Wextra
 C := gcc

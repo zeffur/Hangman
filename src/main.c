@@ -19,7 +19,6 @@ int main() {
     return 1;
   }
 
-  // create a renderer, which sets up the graphics hardware
   Uint32 render_flags = SDL_RENDERER_ACCELERATED;
   SDL_Renderer *rend = SDL_CreateRenderer(win, -1, render_flags);
   if (!rend) {

@@ -526,10 +526,9 @@ int FileRead(char *word, int s) {
   k = rand() % 10;
   while (i < k) {
     fscanf(file, "%s", word);
-    // l = strlen(word);
-
     i++;
   }
+
   l = strlen(word);
   fclose(file);
   return l;
@@ -542,34 +541,10 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
   char word[256];
   l = FileRead(word, 1);
 
-  /*  srand(time(NULL));
-
-    FILE *file = fopen("./files/Length1.txt", "r");
-    k = rand() % 10;
-    while (i < k) {
-      fscanf(file, "%s", word);
-      // l = strlen(word);
-
-      i++;
-    }
-    l = strlen(word);
-    fclose(file);*/
-
   graphics(51, rend, tex_all);
-  /*  SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
+
   while (b < l) {
     graphics_b(rend, tex_all, b);
-    /*    SDL_Rect rect;
-        SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
-
-        rect.w = 70;
-        rect.h = 30;
-        rect.x = 25 + (b * 70);
-        rect.y = 600;
-        SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
-        SDL_RenderPresent(rend);
-        SDL_Delay(1000 / 60);*/
     b++;
   }
   h = Hang(rend, win, word, tex_all, tex_let);
@@ -579,16 +554,9 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 
   if (h == 7) {
     graphics(52, rend, tex_all);
-    /*
-        SDL_RenderClear(rend);
-        SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
-        SDL_RenderPresent(rend);*/
 
   } else if (h == 5) {
     graphics(53, rend, tex_all);
-    /*    SDL_RenderClear(rend);
-        SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
-        SDL_RenderPresent(rend);*/
   }
 
   int close_requested = 0;
@@ -609,6 +577,7 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
       }
     }
   }
+  return 0;
 }
 
 int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
@@ -619,23 +588,11 @@ int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
   char word[256];
 
   l = FileRead(word, 2);
-  //
+
   graphics(51, rend, tex_all);
-  /*  SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
 
   while (b < l) {
     graphics_b(rend, tex_all, b);
-    /*    SDL_Rect rect;
-        SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
-
-        rect.w = 70;
-        rect.h = 30;
-        rect.x = 25 + (b * 70);
-        rect.y = 600;
-        SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
-        SDL_RenderPresent(rend);
-        SDL_Delay(1000 / 60);*/
     b++;
   }
   h = Hang(rend, win, word, tex_all, tex_let);
@@ -645,16 +602,9 @@ int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 
   if (h == 7) {
     graphics(52, rend, tex_all);
-    /*
-        SDL_RenderClear(rend);
-        SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
-        SDL_RenderPresent(rend);*/
 
   } else if (h == 5) {
     graphics(53, rend, tex_all);
-    /*    SDL_RenderClear(rend);
-        SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
-        SDL_RenderPresent(rend);*/
   }
   int close_requested = 0;
   while (!close_requested) {
@@ -674,6 +624,7 @@ int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
       }
     }
   }
+  return 0;
 }
 
 int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
@@ -684,24 +635,8 @@ int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
   char word[256];
   l = FileRead(word, 3);
 
-  //
-  // graphics(51, rend, tex_all);
-  /*  SDL_RenderClear(rend);
-    SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
-  // " << endl;
-
   while (b < l) {
     graphics_b(rend, tex_all, b);
-    /*    SDL_Rect rect;
-        SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
-
-        rect.w = 70;
-        rect.h = 30;
-        rect.x = 25 + (b * 70);
-        rect.y = 600;
-        SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
-        SDL_RenderPresent(rend);
-        SDL_Delay(1000 / 60);*/
     b++;
   }
   h = Hang(rend, win, word, tex_all, tex_let);
@@ -711,16 +646,9 @@ int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 
   if (h == 7) {
     graphics(52, rend, tex_all);
-    /*
-        SDL_RenderClear(rend);
-        SDL_RenderCopy(rend, tex_all[4], NULL, NULL);
-        SDL_RenderPresent(rend);*/
 
   } else if (h == 5) {
     graphics(53, rend, tex_all);
-    /*    SDL_RenderClear(rend);
-        SDL_RenderCopy(rend, tex_all[5], NULL, NULL);
-        SDL_RenderPresent(rend);*/
   }
   int close_requested = 0;
   while (!close_requested) {
@@ -740,6 +668,7 @@ int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
       }
     }
   }
+  return 0;
 }
 
 int Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
