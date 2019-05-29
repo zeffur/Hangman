@@ -501,6 +501,8 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 }
 
 int FileRead(char *word, int s) {
+  if (word == NULL)
+    return -1;
   int i = -1, k, l;
   srand(time(NULL));
   FILE *file;

@@ -24,8 +24,8 @@ $(BUILD_DIR)/menu.o: $(SRC_DIR)/menu.c
 $(BUILD_DIR)/main.o: $(SRC_DIR)/main.c
 	$(CC) -c $(SRC_DIR)/main.c -o $(BUILD_DIR)/main.o $(FLAG)
 
-$(BIN_DIR)/testing: $(BUILDTEST_DIR)/main.o $(BUILDTEST_DIR)/menu.o $(BUILDTEST_DIR)/output.o $(BUILD_DIR)/output.o 
-	$(C) $(BUILDTEST_DIR)/main.o $(BUILDTEST_DIR)/menu.o $(BUILDTEST_DIR)/output.o $(BUILD_DIR)/output.o $(FLAGS) -o $(BIN_DIR)/testing $(SDL)
+$(BIN_DIR)/testing: $(BUILDTEST_DIR)/main.o $(BUILDTEST_DIR)/menu.o $(BUILDTEST_DIR)/output.o $(BUILD_DIR)/output.o $(BUILD_DIR)/menu.o
+	$(C) $(BUILDTEST_DIR)/main.o $(BUILDTEST_DIR)/menu.o $(BUILDTEST_DIR)/output.o $(BUILD_DIR)/output.o $(BUILD_DIR)/menu.o  $(FLAGS) -o $(BIN_DIR)/testing $(SDL)
 
 $(BUILDTEST_DIR)/menu.o: $(TEST_DIR)/menu.c
 	$(C) -c $(TEST_DIR)/menu.c -o $(BUILDTEST_DIR)/menu.o $(FLAGS)

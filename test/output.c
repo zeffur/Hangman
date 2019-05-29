@@ -7,8 +7,9 @@ CTEST(File, Read) {
   int s;
 
   // When
-  FileRead(NULL, s);
+  int real = FileRead(NULL, s);
 
   // Then
-  ASSERT_STR(NULL, word);
+  int exp = -1;
+  ASSERT_EQUAL(exp, real);
 }
