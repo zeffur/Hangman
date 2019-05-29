@@ -503,14 +503,22 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
   return 0;
 }
 
-int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
-          SDL_Texture **tex_let) {
-
-  int i = -1, l, b = 0, k, h;
+int FileRead(char *word, int s) {
+  int i = -1, k, l;
   srand(time(NULL));
-  char word[256];
+  FILE *file;
+  switch (s) {
+  case 1:
+    file = fopen("./files/Length1.txt", "r");
+    break;
+  case 2:
+    file = fopen("./files/Length2.txt", "r");
+    break;
+  case 3:
+    file = fopen("./files/Length3.txt", "r");
+    break;
+  }
 
-  FILE *file = fopen("./files/Length1.txt", "r");
   k = rand() % 10;
   while (i < k) {
     fscanf(file, "%s", word);
@@ -520,6 +528,27 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
   }
   l = strlen(word);
   fclose(file);
+  return l;
+}
+int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
+          SDL_Texture **tex_let) {
+
+  int l, b = 0, h;
+  char word[256];
+  l = FileRead(word, 1);
+
+  /*  srand(time(NULL));
+
+    FILE *file = fopen("./files/Length1.txt", "r");
+    k = rand() % 10;
+    while (i < k) {
+      fscanf(file, "%s", word);
+      // l = strlen(word);
+
+      i++;
+    }
+    l = strlen(word);
+    fclose(file);*/
 
   // cout << word;
   // cout << l;
@@ -584,20 +613,11 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
           SDL_Texture **tex_let) {
 
-  int i = -1, l, b = 0, k, h;
+  int l, b = 0, h;
   srand(time(NULL));
   char word[256];
 
-  FILE *file = fopen("./files/Length2.txt", "r");
-  k = rand() % 10;
-  while (i < k) {
-    fscanf(file, "%s", &word);
-
-    i++;
-  }
-  l = strlen(word);
-  fclose(file);
-
+  l = FileRead(word, 2);
   // cout << word;
   graphics(51, rend, tex_all);
   /*  SDL_RenderClear(rend);
@@ -658,19 +678,10 @@ int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
           SDL_Texture **tex_let) {
 
-  int i = -1, l, b = 0, k, h;
+  int l, b = 0, h;
   srand(time(NULL));
   char word[256];
-
-  FILE *file = fopen("./files/Length3.txt", "r");
-  k = rand() % 10;
-  while (i < k) {
-    fscanf(file, "%s", word);
-    l = strlen(word);
-
-    i++;
-  }
-  fclose(file);
+  l = FileRead(word, 3);
 
   // cout << word;
   // cout << l;
