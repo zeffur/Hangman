@@ -1,6 +1,6 @@
-language: cpp
+language: c
 dist: xenial
-compiler: g++
+compiler: gcc
 
 before_install:
   - sudo apt-get update
@@ -9,3 +9,4 @@ before_install:
 script:
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
   - make
+  - make test

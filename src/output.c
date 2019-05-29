@@ -517,9 +517,12 @@ int FileRead(char *word, int s) {
     file = fopen("./files/Length3.txt", "r");
     break;
   default:
-    return -5;	
+    return -5;
+    break;
   }
-  
+  if (file == NULL)
+    return -1;
+
   k = rand() % 10;
   while (i < k) {
     fscanf(file, "%s", word);
@@ -531,6 +534,7 @@ int FileRead(char *word, int s) {
   fclose(file);
   return l;
 }
+
 int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
           SDL_Texture **tex_let) {
 
