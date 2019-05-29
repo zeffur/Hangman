@@ -495,7 +495,7 @@ void graphics_let(
         SDL_QueryTexture(tex_all[6], NULL, NULL, &right.w, &right.h);
         right.w = 35;
         right.h = 36;
-        right.x = 375;
+        right.x = 275;
         right.y = 108;
 
         rect.w = 35;
