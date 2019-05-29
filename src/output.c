@@ -645,6 +645,8 @@ int File3(
     char word[256];
     l = FileRead(word, 3);
 
+    graphics(51, rend, tex_all);
+
     while (b < l) {
         graphics_b(rend, tex_all, b);
         b++;
