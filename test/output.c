@@ -2,23 +2,23 @@
 #include "../thirdparty/ctest.h"
 
 CTEST(File, Read) {
-  char word[256];
-  int s = 0;
+    char word[256];
+    int s = 0;
 
-  int real = FileRead(NULL, s);
+    int real = FileRead(NULL, s);
 
-  int exp = -1;
-  ASSERT_EQUAL(exp, real);
+    int exp = -1;
+    ASSERT_EQUAL(exp, real);
 }
 
 CTEST(File, S_zero) {
-  char word[256];
-  int s = 0;
+    char word[256];
+    int s = 0;
 
-  int real = FileRead(word, s);
+    int real = FileRead(word, s);
 
-  int exp = -5;
-  ASSERT_EQUAL(exp, real);
+    int exp = -5;
+    ASSERT_EQUAL(exp, real);
 }
 
 /*CTEST(File, Schange) {
