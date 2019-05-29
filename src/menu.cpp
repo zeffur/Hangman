@@ -291,6 +291,7 @@ void graphics_b(SDL_Renderer *rend, SDL_Texture **tex_all, int b) {
   SDL_RenderCopy(rend, tex_all[3], NULL, &rect);
   SDL_RenderPresent(rend);
   SDL_Delay(1000 / 60);
+  //  cout << b;
 }
 
 void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,

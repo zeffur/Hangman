@@ -506,31 +506,29 @@ int Hang(SDL_Renderer *rend, SDL_Window *win, char *word, SDL_Texture **tex_all,
 int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
           SDL_Texture **tex_let) {
 
-  int i = 0, l, b = 0, k, h;
+  int i = -1, l, b = 0, k, h;
   srand(time(NULL));
   char word[256];
 
   FILE *file = fopen("./files/Length1.txt", "r");
-  if (file == NULL) {
-    cout << "file not found";
-    cout << endl;
-  }
   k = rand() % 10;
   while (i < k) {
     fscanf(file, "%s", word);
-    l = strlen(word);
+    // l = strlen(word);
 
     i++;
   }
+  l = strlen(word);
   fclose(file);
 
-  cout << word;
-  cout << l;
+  // cout << word;
+  // cout << l;
   graphics(51, rend, tex_all);
   /*  SDL_RenderClear(rend);
     SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
-
+  cout << b << " | ";
   while (b < l) {
+    cout << b;
     graphics_b(rend, tex_all, b);
     /*    SDL_Rect rect;
         SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
@@ -586,26 +584,21 @@ int File1(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
           SDL_Texture **tex_let) {
 
-  int i = 0, l, b = 0, k, h;
+  int i = -1, l, b = 0, k, h;
   srand(time(NULL));
   char word[256];
 
   FILE *file = fopen("./files/Length2.txt", "r");
-  if (file == NULL) {
-    cout << "file not found";
-    cout << endl;
-  }
   k = rand() % 10;
   while (i < k) {
-    fscanf(file, "%s", word);
-    l = strlen(word);
+    fscanf(file, "%s", &word);
 
     i++;
   }
+  l = strlen(word);
   fclose(file);
 
-  cout << word;
-  cout << l;
+  // cout << word;
   graphics(51, rend, tex_all);
   /*  SDL_RenderClear(rend);
     SDL_RenderCopy(rend, tex_all[2], NULL, NULL);*/
@@ -665,15 +658,11 @@ int File2(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
 int File3(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
           SDL_Texture **tex_let) {
 
-  int i = 0, l, b = 0, k, h;
+  int i = -1, l, b = 0, k, h;
   srand(time(NULL));
   char word[256];
 
   FILE *file = fopen("./files/Length3.txt", "r");
-  if (file == NULL) {
-    cout << "file not found";
-    cout << endl;
-  }
   k = rand() % 10;
   while (i < k) {
     fscanf(file, "%s", word);
