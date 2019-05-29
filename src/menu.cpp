@@ -782,7 +782,7 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 406;
+    wrong.x = 263;
     wrong.y = 32;
 
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
@@ -792,7 +792,7 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 483;
+    wrong.x = 316;
     wrong.y = 32;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
@@ -801,7 +801,7 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 568;
+    wrong.x = 367;
     wrong.y = 32;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
@@ -810,17 +810,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 64;
-    wrong.y = 151;
-    SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
-  }
-  if (r == 307) {
-    SDL_Rect wrong;
-    SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
-    wrong.w = 35;
-    wrong.h = 36;
-    wrong.x = 64;
-    wrong.y = 151;
+    wrong.x = 33;
+    wrong.y = 94;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 308) {
@@ -828,8 +819,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 154;
-    wrong.y = 151;
+    wrong.x = 93;
+    wrong.y = 94;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 309) {
@@ -837,8 +828,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 231;
-    wrong.y = 151;
+    wrong.x = 150;
+    wrong.y = 94;
 
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
@@ -847,8 +838,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 317;
-    wrong.y = 151;
+    wrong.x = 204;
+    wrong.y = 94;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 311) {
@@ -857,8 +848,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 405;
-    wrong.y = 151;
+    wrong.x = 263;
+    wrong.y = 94;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
 
@@ -867,8 +858,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 472;
-    wrong.y = 151;
+    wrong.x = 309;
+    wrong.y = 94;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 313) {
@@ -876,8 +867,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 568;
-    wrong.y = 151;
+    wrong.x = 368;
+    wrong.y = 94;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 314) {
@@ -885,8 +876,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 62;
-    wrong.y = 247;
+    wrong.x = 36;
+    wrong.y = 151;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 315) {
@@ -894,8 +885,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 150;
-    wrong.y = 227;
+    wrong.x = 93;
+    wrong.y = 151;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 316) {
@@ -903,8 +894,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 226;
-    wrong.y = 227;
+    wrong.x = 146;
+    wrong.y = 151;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 317) {
@@ -912,8 +903,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 315;
-    wrong.y = 227;
+    wrong.x = 206;
+    wrong.y = 151;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 318) {
@@ -921,8 +912,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 402;
-    wrong.y = 227;
+    wrong.x = 261;
+    wrong.y = 151;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
 
@@ -931,8 +922,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 478;
-    wrong.y = 227;
+    wrong.x = 314;
+    wrong.y = 151;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 320) {
@@ -940,8 +931,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 562;
-    wrong.y = 227;
+    wrong.x = 368;
+    wrong.y = 151;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 321) {
@@ -949,8 +940,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 139;
-    wrong.y = 302;
+    wrong.x = 87;
+    wrong.y = 210;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 322) {
@@ -958,8 +949,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 218;
-    wrong.y = 302;
+    wrong.x = 138;
+    wrong.y = 210;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 323) {
@@ -967,8 +958,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 315;
-    wrong.y = 302;
+    wrong.x = 204;
+    wrong.y = 210;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
 
@@ -977,8 +968,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 395;
-    wrong.y = 302;
+    wrong.x = 259;
+    wrong.y = 210;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
   if (r == 325) {
@@ -986,8 +977,8 @@ void graphics_let(int r, SDL_Renderer *rend, SDL_Texture **tex_all,
     SDL_QueryTexture(tex_all[7], NULL, NULL, &wrong.w, &wrong.h);
     wrong.w = 35;
     wrong.h = 36;
-    wrong.x = 483;
-    wrong.y = 302;
+    wrong.x = 315;
+    wrong.y = 210;
     SDL_RenderCopy(rend, tex_all[7], NULL, &wrong);
   }
 }
