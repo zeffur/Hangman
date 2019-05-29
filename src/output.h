@@ -19,5 +19,6 @@ int Help(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
          SDL_Texture **tex_let);
 int Levels(SDL_Renderer *rend, SDL_Window *win, SDL_Texture **tex_all,
            SDL_Texture **tex_let);
+int FileRead(char *word, int s);
 
 #endif
