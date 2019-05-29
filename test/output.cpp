@@ -10,6 +10,6 @@ CTEST(File, Read) {
   FileRead(NULL, &s);
 
   // Then
-  const double exp = 1;
+  const double exp = 0.0;
   ASSERT_DBL_NEAR(word, exp);
 }
