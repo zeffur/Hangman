@@ -11,7 +11,8 @@ int Hang(
         SDL_Window* win,
         char* word,
         SDL_Texture** tex_all,
-        SDL_Texture** tex_let) {
+        SDL_Texture** tex_let)
+{
     unsigned int i, c = 0;
     int close_requested = 0, failure = 0;
     int status[26], estnet[26];
@@ -502,7 +503,8 @@ int Hang(
     return 0;
 }
 
-int FileRead(char* word, int s) {
+int FileRead(char* word, int s)
+{
     if (word == NULL)
         return -1;
     int i = -1, k, l;
@@ -540,7 +542,8 @@ int File1(
         SDL_Renderer* rend,
         SDL_Window* win,
         SDL_Texture** tex_all,
-        SDL_Texture** tex_let) {
+        SDL_Texture** tex_let)
+{
     int l, b = 0, h;
     char word[256];
     l = FileRead(word, 1);
@@ -553,8 +556,9 @@ int File1(
     }
     h = Hang(rend, win, word, tex_all, tex_let);
 
-    if (h == 0)
+    if (h == 0) {
         return 0;
+    }
 
     if (h == 7) {
         SDL_Delay(100);
@@ -591,7 +595,8 @@ int File2(
         SDL_Renderer* rend,
         SDL_Window* win,
         SDL_Texture** tex_all,
-        SDL_Texture** tex_let) {
+        SDL_Texture** tex_let)
+{
     int l, b = 0, h;
     srand(time(NULL));
     char word[256];
@@ -606,9 +611,9 @@ int File2(
     }
     h = Hang(rend, win, word, tex_all, tex_let);
 
-    if (h == 0)
+    if (h == 0) {
         return 0;
-
+    }
     if (h == 7) {
         graphics(52, rend, tex_all);
 
@@ -641,7 +646,8 @@ int File3(
         SDL_Renderer* rend,
         SDL_Window* win,
         SDL_Texture** tex_all,
-        SDL_Texture** tex_let) {
+        SDL_Texture** tex_let)
+{
     int l, b = 0, h;
     srand(time(NULL));
     char word[256];
@@ -655,8 +661,9 @@ int File3(
     }
     h = Hang(rend, win, word, tex_all, tex_let);
 
-    if (h == 0)
+    if (h == 0) {
         return 0;
+    }
 
     if (h == 7) {
         graphics(52, rend, tex_all);
@@ -690,7 +697,8 @@ int Help(
         SDL_Renderer* rend,
         SDL_Window* win,
         SDL_Texture** tex_all,
-        SDL_Texture** tex_let) {
+        SDL_Texture** tex_let)
+{
     int close_requested = 0;
     while (!close_requested) {
         SDL_Event event;
@@ -721,7 +729,8 @@ int Levels(
         SDL_Renderer* rend,
         SDL_Window* win,
         SDL_Texture** tex_all,
-        SDL_Texture** tex_let) {
+        SDL_Texture** tex_let)
+{
     int close_requested = 0;
     while (!close_requested) {
         SDL_Event event;

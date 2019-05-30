@@ -1,7 +1,8 @@
 #include "../src/output.h"
 #include "../thirdparty/ctest.h"
 
-CTEST(File, Read) {
+CTEST(File, Read)
+{
     char word[256];
     int s = 0;
 
@@ -11,7 +12,8 @@ CTEST(File, Read) {
     ASSERT_EQUAL(exp, real);
 }
 
-CTEST(File, S_zero) {
+CTEST(File, S_zero)
+{
     char word[256];
     int s = 0;
 

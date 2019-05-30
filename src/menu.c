@@ -8,7 +8,8 @@ int Menu(
         SDL_Renderer* rend,
         SDL_Window* win,
         SDL_Texture** tex_all,
-        SDL_Texture** tex_let) {
+        SDL_Texture** tex_let)
+{
     SDL_SetRenderDrawColor(rend, 150, 0, 0, 150);
     SDL_RenderClear(rend);
     graphics(50, rend, tex_all);
@@ -49,7 +50,8 @@ int Menu(
     return 0;
 }
 
-void graphics(int r, SDL_Renderer* rend, SDL_Texture** tex_all) {
+void graphics(int r, SDL_Renderer* rend, SDL_Texture** tex_all)
+{
     if (r == 50) {
         SDL_Rect title;
         SDL_Rect opt;
@@ -288,7 +290,8 @@ void graphics(int r, SDL_Renderer* rend, SDL_Texture** tex_all) {
     }
 }
 
-void graphics_b(SDL_Renderer* rend, SDL_Texture** tex_all, int b) {
+void graphics_b(SDL_Renderer* rend, SDL_Texture** tex_all, int b)
+{
     SDL_Rect rect;
     SDL_QueryTexture(tex_all[3], NULL, NULL, &rect.w, &rect.h);
 
@@ -306,7 +309,8 @@ void graphics_let(
         SDL_Renderer* rend,
         SDL_Texture** tex_all,
         SDL_Texture** tex_let,
-        int i) {
+        int i)
+{
     if (r == 200) {
         SDL_Rect rect;
         SDL_Rect right;
