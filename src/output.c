@@ -557,9 +557,11 @@ int File1(
         return 0;
 
     if (h == 7) {
+        SDL_Delay(1000);
         graphics(52, rend, tex_all);
 
     } else if (h == 5) {
+        SDL_Delay(1000);
         graphics(53, rend, tex_all);
     }
 
