@@ -27,6 +27,7 @@ int Menu(
                 && event.type == SDL_MOUSEBUTTONDOWN) {
                 if (mouse_x > 297 && mouse_x < 388 && mouse_y > 197
                     && mouse_y < 243) {
+                    graphics(10, rend, tex_all);
                     graphics(11, rend, tex_all);
                     Levels(rend, win, tex_all, tex_let);
                 }
@@ -153,24 +154,29 @@ void graphics(int r, SDL_Renderer* rend, SDL_Texture** tex_all)
         SDL_RenderCopy(rend, tex_all[18], NULL, &back);
         SDL_RenderPresent(rend);
     }
-
-    if (r == 11) {
+    if (r == 10) {
         SDL_Rect playbut;
-        SDL_Rect title;
-        SDL_Rect levels;
-        SDL_Rect back;
-        SDL_Rect note;
-
         SDL_QueryTexture(tex_all[13], NULL, NULL, &playbut.w, &playbut.h);
-        SDL_QueryTexture(tex_all[0], NULL, NULL, &title.w, &title.h);
-        SDL_QueryTexture(tex_all[1], NULL, NULL, &levels.w, &levels.h);
-        SDL_QueryTexture(tex_all[18], NULL, NULL, &back.w, &back.h);
-        SDL_QueryTexture(tex_all[25], NULL, NULL, &note.w, &note.h);
 
         playbut.w = 173;
         playbut.h = 92;
         playbut.x = 253;
         playbut.y = 176;
+
+        SDL_RenderCopy(rend, tex_all[13], NULL, &playbut);
+        SDL_RenderPresent(rend);
+        SDL_Delay(100);
+    }
+    if (r == 11) {
+        SDL_Rect title;
+        SDL_Rect levels;
+        SDL_Rect back;
+        SDL_Rect note;
+
+        SDL_QueryTexture(tex_all[0], NULL, NULL, &title.w, &title.h);
+        SDL_QueryTexture(tex_all[1], NULL, NULL, &levels.w, &levels.h);
+        SDL_QueryTexture(tex_all[18], NULL, NULL, &back.w, &back.h);
+        SDL_QueryTexture(tex_all[25], NULL, NULL, &note.w, &note.h);
 
         title.w = 700;
         title.h = 100;
@@ -191,9 +197,6 @@ void graphics(int r, SDL_Renderer* rend, SDL_Texture** tex_all)
         note.h = 83;
         note.x = 0;
         note.y = 375;
-        SDL_RenderCopy(rend, tex_all[13], NULL, &playbut);
-        SDL_RenderPresent(rend);
-        SDL_Delay(100);
 
         SDL_RenderClear(rend);
         SDL_RenderCopy(rend, tex_all[0], NULL, &title);

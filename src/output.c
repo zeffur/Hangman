@@ -561,11 +561,11 @@ int File1(
     }
 
     if (h == 7) {
-        SDL_Delay(100);
+        SDL_Delay(500);
         graphics(52, rend, tex_all);
 
     } else if (h == 5) {
-        SDL_Delay(100);
+        SDL_Delay(500);
         graphics(53, rend, tex_all);
     }
 
@@ -583,7 +583,9 @@ int File1(
                 && event.type == SDL_MOUSEBUTTONDOWN) {
                 if (mouse_x > 557 && mouse_x < 684 && mouse_y > 415
                     && mouse_y < 486) {
-                    Menu(rend, win, tex_all, tex_let);
+                    SDL_SetRenderDrawColor(rend, 150, 0, 0, 150);
+                    graphics(11, rend, tex_all);
+                    Levels(rend, win, tex_all, tex_let);
                 }
             }
         }
@@ -634,7 +636,9 @@ int File2(
                 && event.type == SDL_MOUSEBUTTONDOWN) {
                 if (mouse_x > 557 && mouse_x < 684 && mouse_y > 415
                     && mouse_y < 486) {
-                    Menu(rend, win, tex_all, tex_let);
+                    SDL_SetRenderDrawColor(rend, 150, 0, 0, 150);
+                    graphics(11, rend, tex_all);
+                    Levels(rend, win, tex_all, tex_let);
                 }
             }
         }
@@ -685,7 +689,9 @@ int File3(
                 && event.type == SDL_MOUSEBUTTONDOWN) {
                 if (mouse_x > 557 && mouse_x < 684 && mouse_y > 415
                     && mouse_y < 486) {
-                    Menu(rend, win, tex_all, tex_let);
+                    SDL_SetRenderDrawColor(rend, 150, 0, 0, 150);
+                    graphics(11, rend, tex_all);
+                    Levels(rend, win, tex_all, tex_let);
                 }
             }
         }
