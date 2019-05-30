@@ -38,6 +38,9 @@ $(BUILDTEST_DIR)/main.o: $(TEST_DIR)/main.c
 test: all
 	$(BIN_DIR)/testing
 
+play: all
+	$(BIN_DIR)/main
+
 clean:
 		rm -rf $(BIN_DIR)/main
 		rm -rf $(BIN_DIR)/testing
