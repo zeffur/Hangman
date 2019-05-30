@@ -157,11 +157,13 @@ void graphics(int r, SDL_Renderer* rend, SDL_Texture** tex_all) {
         SDL_Rect title;
         SDL_Rect levels;
         SDL_Rect back;
+        SDL_Rect note;
 
         SDL_QueryTexture(tex_all[13], NULL, NULL, &playbut.w, &playbut.h);
         SDL_QueryTexture(tex_all[0], NULL, NULL, &title.w, &title.h);
         SDL_QueryTexture(tex_all[1], NULL, NULL, &levels.w, &levels.h);
         SDL_QueryTexture(tex_all[18], NULL, NULL, &back.w, &back.h);
+        SDL_QueryTexture(tex_all[25], NULL, NULL, &note.w, &note.h);
 
         playbut.w = 173;
         playbut.h = 92;
@@ -182,6 +184,11 @@ void graphics(int r, SDL_Renderer* rend, SDL_Texture** tex_all) {
         back.h = 71;
         back.x = 557;
         back.y = 415;
+
+        note.w = 700;
+        note.h = 83;
+        note.x = 0;
+        note.y = 375;
         SDL_RenderCopy(rend, tex_all[13], NULL, &playbut);
         SDL_RenderPresent(rend);
         SDL_Delay(100);
@@ -190,6 +197,7 @@ void graphics(int r, SDL_Renderer* rend, SDL_Texture** tex_all) {
         SDL_RenderCopy(rend, tex_all[0], NULL, &title);
         SDL_RenderCopy(rend, tex_all[1], NULL, &levels);
         SDL_RenderCopy(rend, tex_all[18], NULL, &back);
+        SDL_RenderCopy(rend, tex_all[25], NULL, &note);
         SDL_RenderPresent(rend);
     }
     if (r == 12) {

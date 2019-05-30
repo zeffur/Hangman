@@ -99,7 +99,7 @@ int main() {
         return 1;
     }
 
-    SDL_Texture** tex_all = (SDL_Texture**)malloc(sizeof(SDL_Texture*) * 25);
+    SDL_Texture** tex_all = (SDL_Texture**)malloc(sizeof(SDL_Texture*) * 26);
     if (!tex_all) {
         SDL_DestroyRenderer(rend);
         printf("error creating texture: %s\n", SDL_GetError());
@@ -109,7 +109,7 @@ int main() {
     }
 
     char pathth[256] = "./files/images/a.bmp";
-    for (int l = 0; l < 25; l++) {
+    for (int l = 0; l < 26; l++) {
         surface_all[l] = IMG_Load(pathth);
         tex_all[l] = SDL_CreateTextureFromSurface(rend, surface_all[l]);
         pathth[15] = 'b' + l;
